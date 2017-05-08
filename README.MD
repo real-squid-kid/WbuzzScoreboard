@@ -1,7 +1,7 @@
-﻿#WbuzzScoreboard
+# WbuzzScoreboard
 A simple scoreboard for Wireless Buzz Controllers for PS3
 
-##How to use - READ ME FIRST THEN ASK QUESTIONS
+## How to use - READ ME FIRST THEN ASK QUESTIONS
 * Connect your USB dongle to your PC.
 * I've provided a tool to initialize Buzz controllers for them to be able to be recognized by the system. It's called SimpleHIDWrite and it's in the root of this project. Launch it and select Wbuzz.
 * Below you'll see six fields. Put 00 in each of them so it would look like 00 00 00 00 00 00 00 and press Write.
