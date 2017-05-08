@@ -1,9 +1,11 @@
 # WbuzzScoreboard
 A simple scoreboard for Wireless Buzz Controllers for PS3
 
+# [DOWNLOAD LATEST BINALY HERE](https://yadi.sk/d/wi7_H_da3Hs3wj)
+
 ## How to use - READ ME FIRST THEN ASK QUESTIONS
 * Connect your USB dongle to your PC.
-* I've provided a tool to initialize Buzz controllers for them to be able to be recognized by the system. It's called SimpleHIDWrite and it's in the root of this project. Launch it and select Wbuzz.
+* You'll need a tool to initialize Buzz controllers for them to be able to be recognized by the system. It's called [SimpleHIDWrite](http://janaxelson.com/hidpage.htm). Launch it and select Wbuzz.
 * Below you'll see six fields. Put 00 in each of them so it would look like 00 00 00 00 00 00 00 and press Write.
 * After that your Buzz controllers should blink blue light when you push a button on them.
 * Launch the app from /bin/debug folder. All files must be present for it to work.
