@@ -115,9 +115,14 @@ Public Class Form1
         Try
             Dim joy As New Joystick(IDNumberTxt.Text)
             WbuzzPoller.Start()
-            WbuzzStatusLbl.Text = info(IDNumberTxt.Text - 1).Name
+            IDNumberTxt.Enabled = False
         Catch ex As Exception
             MessageBox.Show("Can't initialize (wrong joystick ID?)", "WbuzzScoreboard", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+        End Try
+        Try
+            WbuzzStatusLbl.Text = info(IDNumberTxt.Text - 1).Name
+        Catch ex As Exception
+
         End Try
     End Sub
 

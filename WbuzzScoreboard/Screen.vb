@@ -52,6 +52,8 @@
     End Sub
     Public Sub Sync(Pad1 As Long, Pad2 As Long, Pad3 As Long, Pad4 As Long)
         Select Case Pad1
+            Case Is < 0
+                Pad1Score.Text = Pad1
             Case Is < 10
                 Pad1Score.Text = "000" & Pad1
             Case Is < 100
@@ -62,6 +64,8 @@
                 Pad1Score.Text = Pad1
         End Select
         Select Case Pad2
+            Case Is < 0
+                Pad2Score.Text = Pad2
             Case Is < 10
                 Pad2Score.Text = "000" & Pad2
             Case Is < 100
@@ -72,6 +76,8 @@
                 Pad2Score.Text = Pad2
         End Select
         Select Case Pad3
+            Case Is < 0
+                Pad3Score.Text = Pad3
             Case Is < 10
                 Pad3Score.Text = "000" & Pad3
             Case Is < 100
@@ -82,6 +88,8 @@
                 Pad3Score.Text = Pad3
         End Select
         Select Case Pad4
+            Case Is < 0
+                Pad4Score.Text = Pad4
             Case Is < 10
                 Pad4Score.Text = "000" & Pad4
             Case Is < 100

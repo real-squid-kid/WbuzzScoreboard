@@ -1,7 +1,7 @@
 # WbuzzScoreboard
 A simple scoreboard for Wireless Buzz Controllers for PS3
 
-# [DOWNLOAD LATEST BINALY HERE](https://yadi.sk/d/wi7_H_da3Hs3wj)
+# Binaries are not in /bin/Debug folder
 
 ## How to use - READ ME FIRST THEN ASK QUESTIONS
 * Connect your USB dongle to your PC.
