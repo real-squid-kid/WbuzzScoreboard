@@ -1,4 +1,5 @@
-﻿Imports AForge
+﻿Imports System.ComponentModel
+Imports AForge
 Imports AForge.Controls
 Imports HidLibrary
 Public Class Form1
@@ -8,6 +9,7 @@ Public Class Form1
     Dim info As List(Of Joystick.DeviceInfo) = Joystick.GetAvailableDevices
     Dim PadsFinder As List(Of HidLibrary.HidDevice)
     Dim Pads As HidDevice
+    Dim BlinkState, PadBlink As Byte
 
 
     Private Sub Pad1AddSubBtn_Click(sender As Object, e As EventArgs) Handles Pad1AddSubBtn.Click
@@ -68,29 +70,108 @@ Public Class Form1
         PressDetect.Start()
     End Sub
 
+    Private Sub WbuzzBlinker_Tick(sender As Object, e As EventArgs) Handles WbuzzBlinker.Tick
+        If BlinkState = 2 Then
+            Select Case PadBlink
+                Case 0
+                    Dim OutData(7) As Byte
+                    OutData(0) = &H0
+                    OutData(1) = &H0
+                    OutData(2) = &H0
+                    OutData(3) = &H0
+                    OutData(4) = &H0
+                    OutData(5) = &H0
+                    OutData(6) = &H0
+                    OutData(7) = &H0
+                    Pads.Write(OutData)
+                Case 1
+                    Dim OutData(7) As Byte
+                    OutData(0) = &H0
+                    OutData(1) = &H0
+                    OutData(2) = &HFF
+                    OutData(3) = &H0
+                    OutData(4) = &H0
+                    OutData(5) = &H0
+                    OutData(6) = &H0
+                    OutData(7) = &H0
+                    Pads.Write(OutData)
+                Case 2
+                    Dim OutData(7) As Byte
+                    OutData(0) = &H0
+                    OutData(1) = &H0
+                    OutData(2) = &H0
+                    OutData(3) = &HFF
+                    OutData(4) = &H0
+                    OutData(5) = &H0
+                    OutData(6) = &H0
+                    OutData(7) = &H0
+                    Pads.Write(OutData)
+                Case 3
+                    Dim OutData(7) As Byte
+                    OutData(0) = &H0
+                    OutData(1) = &H0
+                    OutData(2) = &H0
+                    OutData(3) = &H0
+                    OutData(4) = &HFF
+                    OutData(5) = &H0
+                    OutData(6) = &H0
+                    OutData(7) = &H0
+                    Pads.Write(OutData)
+                Case 4
+                    Dim OutData(7) As Byte
+                    OutData(0) = &H0
+                    OutData(1) = &H0
+                    OutData(2) = &H0
+                    OutData(3) = &H0
+                    OutData(4) = &H0
+                    OutData(5) = &HFF
+                    OutData(6) = &H0
+                    OutData(7) = &H0
+                    Pads.Write(OutData)
+            End Select
+            BlinkState = 1
+        Else
+            BlinkState = 2
+            Dim OutData(7) As Byte
+            OutData(0) = &H0
+            OutData(1) = &H0
+            OutData(2) = &H0
+            OutData(3) = &H0
+            OutData(4) = &H0
+            OutData(5) = &H0
+            OutData(6) = &H0
+            OutData(7) = &H0
+            Pads.Write(OutData)
+        End If
+    End Sub
+
     Private Sub PressDetect_Tick(sender As Object, e As EventArgs) Handles PressDetect.Tick
         If Pad1Button Then
             My.Computer.Audio.Play(My.Resources.ff_buzzer, AudioPlayMode.Background)
             Scoreboard.CallOut(1)
             PressDetect.Stop()
+            PadBlink = 1
             Exit Sub
         End If
         If Pad2Button Then
             My.Computer.Audio.Play(My.Resources.ff_buzzer, AudioPlayMode.Background)
             Scoreboard.CallOut(2)
             PressDetect.Stop()
+            PadBlink = 2
             Exit Sub
         End If
         If Pad3Button Then
             My.Computer.Audio.Play(My.Resources.ff_buzzer, AudioPlayMode.Background)
             Scoreboard.CallOut(3)
             PressDetect.Stop()
+            PadBlink = 3
             Exit Sub
         End If
         If Pad4Button Then
             My.Computer.Audio.Play(My.Resources.ff_buzzer, AudioPlayMode.Background)
             Scoreboard.CallOut(4)
             PressDetect.Stop()
+            PadBlink = 4
             Exit Sub
         End If
     End Sub
@@ -98,6 +179,7 @@ Public Class Form1
     Private Sub ResetBtn_Click(sender As Object, e As EventArgs) Handles ResetBtn.Click
         Scoreboard.Reset()
         PressDetect.Start()
+        PadBlink = 0
     End Sub
 
     Public Class PadsEnum
@@ -150,6 +232,7 @@ Public Class Form1
 
     Private Sub WbuzzInitBtn_Click(sender As Object, e As EventArgs) Handles WbuzzInitBtn.Click
         WbuzzPoller.Stop()
+        WbuzzBlinker.Stop()
         Try
             Dim joy As New Joystick(IDNumberTxt.Text)
             WbuzzPoller.Start()
@@ -171,8 +254,14 @@ Public Class Form1
             OutData(6) = &H0
             OutData(7) = &H0
             Pads.Write(OutData)
+            PadBlink = 0
+            WbuzzBlinker.Start()
+            LED1Chk.Enabled = True
+            LED2Chk.Enabled = True
+            LED3Chk.Enabled = True
+            LED4Chk.Enabled = True
         Catch
-            MessageBox.Show("Can't initialize Wbuzz pads (not connected?)", "WbuzzScoreboard", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+            MessageBox.Show("Can't initialize Wbuzz pads properly (not connected?)", "WbuzzScoreboard", MessageBoxButtons.OK, MessageBoxIcon.Stop)
         End Try
         Try
             WbuzzStatusLbl.Text = info(IDNumberTxt.Text - 1).Name
@@ -222,5 +311,35 @@ Public Class Form1
         Else
             ResetBtn.BackColor = Color.Gray
         End If
+        If PadBlink = 0 Then
+            Dim OutData(7) As Byte
+            OutData(0) = &H0
+            OutData(1) = &H0
+            If LED1Chk.Checked Then OutData(2) = &HFF Else OutData(2) = &H0
+            If LED2Chk.Checked Then OutData(3) = &HFF Else OutData(3) = &H0
+            If LED3Chk.Checked Then OutData(4) = &HFF Else OutData(4) = &H0
+            If LED4Chk.Checked Then OutData(5) = &HFF Else OutData(5) = &H0
+            OutData(6) = &H0
+            OutData(7) = &H0
+            Pads.Write(OutData)
+        End If
+    End Sub
+
+    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Try
+            Dim OutData(7) As Byte
+            OutData(0) = &H0
+            OutData(1) = &H0
+            OutData(2) = &H0
+            OutData(3) = &H0
+            OutData(4) = &H0
+            OutData(5) = &H0
+            OutData(6) = &H0
+            OutData(7) = &H0
+            Pads.Write(OutData)
+            Pads.CloseDevice()
+        Catch
+        End Try
+
     End Sub
 End Class

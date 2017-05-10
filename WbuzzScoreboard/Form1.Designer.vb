@@ -60,6 +60,7 @@ Partial Class Form1
         Me.Pad2ScoreSetBtn = New System.Windows.Forms.Button()
         Me.Pad3ScoreSetBtn = New System.Windows.Forms.Button()
         Me.Pad4ScoreSetBtn = New System.Windows.Forms.Button()
+        Me.WbuzzBlinker = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -414,6 +415,10 @@ Partial Class Form1
         Me.Pad4ScoreSetBtn.Text = "Set"
         Me.Pad4ScoreSetBtn.UseVisualStyleBackColor = True
         '
+        'WbuzzBlinker
+        '
+        Me.WbuzzBlinker.Interval = 250
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -486,4 +491,5 @@ Partial Class Form1
     Friend WithEvents Pad2ScoreSetBtn As Button
     Friend WithEvents Pad3ScoreSetBtn As Button
     Friend WithEvents Pad4ScoreSetBtn As Button
+    Friend WithEvents WbuzzBlinker As Timer
 End Class
