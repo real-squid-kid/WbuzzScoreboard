@@ -164,37 +164,29 @@ Public Class Form1
 
     Private Sub PressDetect_Tick(sender As Object, e As EventArgs) Handles PressDetect.Tick
         If Pad1Button Then
-            My.Computer.Audio.Play(My.Resources.ff_buzzer, AudioPlayMode.Background)
-            Scoreboard.CallOut(1)
-            PressDetect.Stop()
-            PadBlink = 1
-            WbuzzBlinker.Start()
+            RedButton(1)
             Exit Sub
         End If
         If Pad2Button Then
-            My.Computer.Audio.Play(My.Resources.ff_buzzer, AudioPlayMode.Background)
-            Scoreboard.CallOut(2)
-            PressDetect.Stop()
-            PadBlink = 2
-            WbuzzBlinker.Start()
+            RedButton(2)
             Exit Sub
         End If
         If Pad3Button Then
-            My.Computer.Audio.Play(My.Resources.ff_buzzer, AudioPlayMode.Background)
-            Scoreboard.CallOut(3)
-            PressDetect.Stop()
-            PadBlink = 3
-            WbuzzBlinker.Start()
+            RedButton(3)
             Exit Sub
         End If
         If Pad4Button Then
-            My.Computer.Audio.Play(My.Resources.ff_buzzer, AudioPlayMode.Background)
-            Scoreboard.CallOut(4)
-            PressDetect.Stop()
-            PadBlink = 4
-            WbuzzBlinker.Start()
+            RedButton(4)
             Exit Sub
         End If
+    End Sub
+    Public Sub RedButton(e As Byte)
+        My.Computer.Audio.Play(My.Resources.ff_buzzer, AudioPlayMode.Background)
+        Scoreboard.CallOut(e)
+        PressDetect.Stop()
+        PadBlink = e
+        WbuzzBlinker.Start()
+        Exit Sub
     End Sub
 
     Private Sub ResetBtn_Click(sender As Object, e As EventArgs) Handles ResetBtn.Click
@@ -204,42 +196,11 @@ Public Class Form1
         PadBlink = 0
     End Sub
 
-    Public Class PadsEnum
-        Implements IEnumerator
-
-        Public _pad() As HidDevice
-
-        ' Enumerators are positioned before the first element
-        ' until the first MoveNext() call.
-        Dim position As Integer = -1
-
-        Public Sub New(ByVal list() As HidDevice)
-            _pad = list
-        End Sub
-
-        Public Function MoveNext() As Boolean Implements IEnumerator.MoveNext
-            position = position + 1
-            Return (position < _pad.Length)
-        End Function
-
-        Public Sub Reset() Implements IEnumerator.Reset
-            position = -1
-        End Sub
-
-        Public ReadOnly Property Current() As Object Implements IEnumerator.Current
-            Get
-                Try
-                    Return _pad(position)
-                Catch ex As IndexOutOfRangeException
-                    Throw New InvalidOperationException()
-                End Try
-            End Get
-        End Property
-    End Class
-
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim arr As New List(Of String)
-        arr.Add("List of connected devices:")
+        Dim arr As New List(Of String) From {
+            "List of connected devices:"
+        }
+
         For n = 0 To info.Count - 1
             arr.Add("ID:" & info(n).ID & ", " & info(n).Name)
         Next
@@ -292,11 +253,6 @@ Public Class Form1
         End Try
     End Sub
 
-
-
-    'Dim joy As New Joystick(1)
-
-
     Private Sub WbuzzPoller_Tick(sender As Object, e As EventArgs) Handles WbuzzPoller.Tick
         Dim joy As New Joystick(IDNumberTxt.Text)
         Dim status As Joystick.Status = joy.GetCurrentStatus
@@ -337,16 +293,7 @@ Public Class Form1
 
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         Try
-            Dim OutData(7) As Byte
-            OutData(0) = &H0
-            OutData(1) = &H0
-            OutData(2) = &H0
-            OutData(3) = &H0
-            OutData(4) = &H0
-            OutData(5) = &H0
-            OutData(6) = &H0
-            OutData(7) = &H0
-            Pads.Write(OutData)
+            DimPads()
             Pads.CloseDevice()
         Catch
         End Try
@@ -364,4 +311,5 @@ Public Class Form1
         OutData(7) = &H0
         Pads.Write(OutData)
     End Sub
+
 End Class

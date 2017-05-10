@@ -240,7 +240,7 @@ Partial Class Form1
         '
         'WbuzzPoller
         '
-        Me.WbuzzPoller.Interval = 20
+        Me.WbuzzPoller.Interval = 30
         '
         'Label2
         '
@@ -249,9 +249,9 @@ Partial Class Form1
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(374, 52)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "WbuzzScoreboard 0.11" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Original work by Vasily ""SquidKid"" Macrov" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Distributed unde" &
-    "r GPL v3 license." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Using AForge library under LGPL v3 license. More: http://www." &
-    "aforgenet.com"
+        Me.Label2.Text = "WbuzzScoreboard 0.2" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Original work by Vasily ""SquidKid"" Macrov" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Distributed under" &
+    " GPL v3 license." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Using AForge library under LGPL v3 license. More: http://www.a" &
+    "forgenet.com"
         '
         'ShowScreen
         '
@@ -273,7 +273,7 @@ Partial Class Form1
         '
         'PressDetect
         '
-        Me.PressDetect.Interval = 20
+        Me.PressDetect.Interval = 30
         '
         'Pad1ScoreTxt
         '
@@ -423,7 +423,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(466, 368)
+        Me.ClientSize = New System.Drawing.Size(466, 433)
         Me.Controls.Add(Me.Pad4AddSubBtn)
         Me.Controls.Add(Me.Pad3AddSubBtn)
         Me.Controls.Add(Me.Pad2AddSubBtn)
