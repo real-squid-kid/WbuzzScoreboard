@@ -1,15 +1,20 @@
 ﻿Imports AForge
 Imports AForge.Controls
+Imports HidLibrary
 Public Class Form1
     Dim Pad1Button, Pad2Button, Pad3Button, Pad4Button As Boolean
     Dim Pad1Score, Pad2Score, Pad3Score, Pad4Score As Long
     Dim JoystickID As Byte
     Dim info As List(Of Joystick.DeviceInfo) = Joystick.GetAvailableDevices
+    Dim PadsFinder As List(Of HidLibrary.HidDevice)
+    Dim Pads As HidDevice
+
 
     Private Sub Pad1AddSubBtn_Click(sender As Object, e As EventArgs) Handles Pad1AddSubBtn.Click
         Pad1Score += Pad1ScoreTxt.Text
         Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
         Scoreboard.Reset()
+
     End Sub
 
     Private Sub Pad2AddSubBtn_Click(sender As Object, e As EventArgs) Handles Pad2AddSubBtn.Click
@@ -95,6 +100,39 @@ Public Class Form1
         PressDetect.Start()
     End Sub
 
+    Public Class PadsEnum
+        Implements IEnumerator
+
+        Public _pad() As HidDevice
+
+        ' Enumerators are positioned before the first element
+        ' until the first MoveNext() call.
+        Dim position As Integer = -1
+
+        Public Sub New(ByVal list() As HidDevice)
+            _pad = list
+        End Sub
+
+        Public Function MoveNext() As Boolean Implements IEnumerator.MoveNext
+            position = position + 1
+            Return (position < _pad.Length)
+        End Function
+
+        Public Sub Reset() Implements IEnumerator.Reset
+            position = -1
+        End Sub
+
+        Public ReadOnly Property Current() As Object Implements IEnumerator.Current
+            Get
+                Try
+                    Return _pad(position)
+                Catch ex As IndexOutOfRangeException
+                    Throw New InvalidOperationException()
+                End Try
+            End Get
+        End Property
+    End Class
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim arr As New List(Of String)
         arr.Add("List of connected devices:")
@@ -118,6 +156,23 @@ Public Class Form1
             IDNumberTxt.Enabled = False
         Catch ex As Exception
             MessageBox.Show("Can't initialize (wrong joystick ID?)", "WbuzzScoreboard", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+        End Try
+        Try
+            PadsFinder = HidDevices.Enumerate(&H54C).ToList
+            Pads = PadsFinder(0)
+            Pads.OpenDevice()
+            Dim OutData(7) As Byte
+            OutData(0) = &H0
+            OutData(1) = &H0
+            OutData(2) = &H0
+            OutData(3) = &H0
+            OutData(4) = &H0
+            OutData(5) = &H0
+            OutData(6) = &H0
+            OutData(7) = &H0
+            Pads.Write(OutData)
+        Catch
+            MessageBox.Show("Can't initialize Wbuzz pads (not connected?)", "WbuzzScoreboard", MessageBoxButtons.OK, MessageBoxIcon.Stop)
         End Try
         Try
             WbuzzStatusLbl.Text = info(IDNumberTxt.Text - 1).Name
