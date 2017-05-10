@@ -273,7 +273,7 @@ Partial Class Form1
         '
         'PressDetect
         '
-        Me.PressDetect.Interval = 10
+        Me.PressDetect.Interval = 20
         '
         'Pad1ScoreTxt
         '

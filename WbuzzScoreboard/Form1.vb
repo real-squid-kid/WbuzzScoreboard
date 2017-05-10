@@ -16,6 +16,7 @@ Public Class Form1
         Pad1Score += Pad1ScoreTxt.Text
         Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
         Scoreboard.Reset()
+        DimPads()
 
     End Sub
 
@@ -23,12 +24,14 @@ Public Class Form1
         Pad2Score += Pad2ScoreTxt.Text
         Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
         Scoreboard.Reset()
+        DimPads()
     End Sub
 
     Private Sub Pad3AddSubBtn_Click(sender As Object, e As EventArgs) Handles Pad3AddSubBtn.Click
         Pad3Score += Pad3ScoreTxt.Text
         Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
         Scoreboard.Reset()
+        DimPads()
     End Sub
 
     Private Sub Pad4AddSubBtn_Click(sender As Object, e As EventArgs) Handles Pad4AddSubBtn.Click
@@ -67,6 +70,7 @@ Public Class Form1
         End If
         Scoreboard.Show()
         Scoreboard.Reset()
+        DimPads()
         PressDetect.Start()
     End Sub
 
@@ -145,12 +149,26 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub LED1Chk_CheckedChanged(sender As Object, e As EventArgs) Handles LED1Chk.CheckedChanged, LED2Chk.CheckedChanged, LED3Chk.CheckedChanged, LED4Chk.CheckedChanged
+        Dim OutData(7) As Byte
+        OutData(0) = &H0
+        OutData(1) = &H0
+        If LED1Chk.Checked Then OutData(2) = &HFF Else OutData(2) = &H0
+        If LED2Chk.Checked Then OutData(3) = &HFF Else OutData(3) = &H0
+        If LED3Chk.Checked Then OutData(4) = &HFF Else OutData(4) = &H0
+        If LED4Chk.Checked Then OutData(5) = &HFF Else OutData(5) = &H0
+        OutData(6) = &H0
+        OutData(7) = &H0
+        Pads.Write(OutData)
+    End Sub
+
     Private Sub PressDetect_Tick(sender As Object, e As EventArgs) Handles PressDetect.Tick
         If Pad1Button Then
             My.Computer.Audio.Play(My.Resources.ff_buzzer, AudioPlayMode.Background)
             Scoreboard.CallOut(1)
             PressDetect.Stop()
             PadBlink = 1
+            WbuzzBlinker.Start()
             Exit Sub
         End If
         If Pad2Button Then
@@ -158,6 +176,7 @@ Public Class Form1
             Scoreboard.CallOut(2)
             PressDetect.Stop()
             PadBlink = 2
+            WbuzzBlinker.Start()
             Exit Sub
         End If
         If Pad3Button Then
@@ -165,6 +184,7 @@ Public Class Form1
             Scoreboard.CallOut(3)
             PressDetect.Stop()
             PadBlink = 3
+            WbuzzBlinker.Start()
             Exit Sub
         End If
         If Pad4Button Then
@@ -172,12 +192,14 @@ Public Class Form1
             Scoreboard.CallOut(4)
             PressDetect.Stop()
             PadBlink = 4
+            WbuzzBlinker.Start()
             Exit Sub
         End If
     End Sub
 
     Private Sub ResetBtn_Click(sender As Object, e As EventArgs) Handles ResetBtn.Click
         Scoreboard.Reset()
+        DimPads()
         PressDetect.Start()
         PadBlink = 0
     End Sub
@@ -311,18 +333,6 @@ Public Class Form1
         Else
             ResetBtn.BackColor = Color.Gray
         End If
-        If PadBlink = 0 Then
-            Dim OutData(7) As Byte
-            OutData(0) = &H0
-            OutData(1) = &H0
-            If LED1Chk.Checked Then OutData(2) = &HFF Else OutData(2) = &H0
-            If LED2Chk.Checked Then OutData(3) = &HFF Else OutData(3) = &H0
-            If LED3Chk.Checked Then OutData(4) = &HFF Else OutData(4) = &H0
-            If LED4Chk.Checked Then OutData(5) = &HFF Else OutData(5) = &H0
-            OutData(6) = &H0
-            OutData(7) = &H0
-            Pads.Write(OutData)
-        End If
     End Sub
 
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -341,5 +351,17 @@ Public Class Form1
         Catch
         End Try
 
+    End Sub
+    Public Sub DimPads()
+        Dim OutData(7) As Byte
+        OutData(0) = &H0
+        OutData(1) = &H0
+        OutData(2) = &H0
+        OutData(3) = &H0
+        OutData(4) = &H0
+        OutData(5) = &H0
+        OutData(6) = &H0
+        OutData(7) = &H0
+        Pads.Write(OutData)
     End Sub
 End Class

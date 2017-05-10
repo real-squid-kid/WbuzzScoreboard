@@ -27,6 +27,7 @@
         Pad3Score.BackColor = Color.Black
         Pad4Score.BackColor = Color.Black
         CurrentBlink = 0
+        Form1.WbuzzBlinker.Stop()
     End Sub
 
     Private Sub Blinker_Tick(sender As Object, e As EventArgs) Handles Blinker.Tick
