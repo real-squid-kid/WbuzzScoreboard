@@ -4,6 +4,8 @@ Imports AForge.Controls
 Imports HidLibrary
 Public Class Form1
     Dim Pad1Button, Pad2Button, Pad3Button, Pad4Button As Byte
+    Dim Vote1, Vote2, Vote3, Vote4 As Byte
+    Dim CanVote As Boolean
     Dim Pad1Score, Pad2Score, Pad3Score, Pad4Score As Long
     Dim JoystickID As Byte
     Dim info As List(Of Joystick.DeviceInfo) = Joystick.GetAvailableDevices
@@ -62,6 +64,119 @@ Public Class Form1
         Pad4Score = Pad4ScoreTxt.Text
         Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
         Scoreboard.Reset()
+    End Sub
+
+    Private Sub ResetVotingBtn_Click(sender As Object, e As EventArgs) Handles ResetVotingBtn.Click
+        Vote1 = 0
+        Vote2 = 0
+        Vote3 = 0
+        Vote4 = 0
+        CanVote = True
+        Pad1VoteLbl.Text = "Pad1: " & Vote1
+        Pad2VoteLbl.Text = "Pad2: " & Vote2
+        Pad3VoteLbl.Text = "Pad3: " & Vote3
+        Pad4VoteLbl.Text = "Pad4: " & Vote4
+    End Sub
+
+    Private Sub Vote1Btn_Click(sender As Object, e As EventArgs) Handles Vote1Btn.Click
+        CanVote = False
+        If Vote1 = 1 Then
+            Pad1Score += VoteValueLbl.Text
+        Else
+            Pad1Score -= VoteValueLbl.Text
+        End If
+        If Vote2 = 1 Then
+            Pad2Score += VoteValueLbl.Text
+        Else
+            Pad2Score -= VoteValueLbl.Text
+        End If
+        If Vote3 = 1 Then
+            Pad3Score += VoteValueLbl.Text
+        Else
+            Pad3Score -= VoteValueLbl.Text
+        End If
+        If Vote4 = 1 Then
+            Pad4Score += VoteValueLbl.Text
+        Else
+            Pad4Score -= VoteValueLbl.Text
+        End If
+        Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
+
+    End Sub
+
+    Private Sub Vote2Btn_Click(sender As Object, e As EventArgs) Handles Vote2Btn.Click
+        CanVote = False
+        If Vote1 = 2 Then
+            Pad1Score += VoteValueLbl.Text
+        Else
+            Pad1Score -= VoteValueLbl.Text
+        End If
+        If Vote2 = 2 Then
+            Pad2Score += VoteValueLbl.Text
+        Else
+            Pad2Score -= VoteValueLbl.Text
+        End If
+        If Vote3 = 2 Then
+            Pad3Score += VoteValueLbl.Text
+        Else
+            Pad3Score -= VoteValueLbl.Text
+        End If
+        If Vote4 = 2 Then
+            Pad4Score += VoteValueLbl.Text
+        Else
+            Pad4Score -= VoteValueLbl.Text
+        End If
+        Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
+    End Sub
+
+    Private Sub Vote3Btn_Click(sender As Object, e As EventArgs) Handles Vote3Btn.Click
+        CanVote = False
+        If Vote1 = 3 Then
+            Pad1Score += VoteValueLbl.Text
+        Else
+            Pad1Score -= VoteValueLbl.Text
+        End If
+        If Vote2 = 3 Then
+            Pad2Score += VoteValueLbl.Text
+        Else
+            Pad2Score -= VoteValueLbl.Text
+        End If
+        If Vote3 = 3 Then
+            Pad3Score += VoteValueLbl.Text
+        Else
+            Pad3Score -= VoteValueLbl.Text
+        End If
+        If Vote4 = 3 Then
+            Pad4Score += VoteValueLbl.Text
+        Else
+            Pad4Score -= VoteValueLbl.Text
+        End If
+        Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
+    End Sub
+
+    Private Sub Vote4Btn_Click(sender As Object, e As EventArgs) Handles Vote4Btn.Click
+        CanVote = False
+        If Vote1 = 4 Then
+            Pad1Score += VoteValueLbl.Text
+        Else
+            Pad1Score -= VoteValueLbl.Text
+        End If
+        If Vote2 = 4 Then
+            Pad2Score += VoteValueLbl.Text
+        Else
+            Pad2Score -= VoteValueLbl.Text
+        End If
+        If Vote3 = 4 Then
+            Pad3Score += VoteValueLbl.Text
+        Else
+            Pad3Score -= VoteValueLbl.Text
+        End If
+        If Vote4 = 4 Then
+            Pad4Score += VoteValueLbl.Text
+        Else
+            Pad4Score -= VoteValueLbl.Text
+        End If
+        Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
     End Sub
 
     Private Sub ShowScreen_Click(sender As Object, e As EventArgs) Handles ShowScreen.Click
@@ -295,7 +410,21 @@ Public Class Form1
         If PadButtons(3).Equals("1"c) Then Pad4Button = 4
         If PadButtons(4).Equals("1"c) Then Pad4Button = 5
 
-        Pad1ButtonLbl.Text = Pad1Button
+        If CanVote Then
+            If Pad1Button >= 1 And Pad1Button <= 4 Then Vote1 = Pad1Button
+            If Pad2Button >= 1 And Pad2Button <= 4 Then Vote2 = Pad2Button
+            If Pad3Button >= 1 And Pad3Button <= 4 Then Vote3 = Pad3Button
+            If Pad4Button >= 1 And Pad4Button <= 4 Then Vote4 = Pad4Button
+            Pad1VoteLbl.Text = "Pad1: " & Vote1
+            Pad2VoteLbl.Text = "Pad2: " & Vote2
+            Pad3VoteLbl.Text = "Pad3: " & Vote3
+            Pad4VoteLbl.Text = "Pad4: " & Vote4
+            ResetVotingBtn.BackColor = Color.Red
+        Else
+            ResetVotingBtn.BackColor = Color.LightGray
+        End If
+
+            Pad1ButtonLbl.Text = Pad1Button
         Pad2ButtonLbl.Text = Pad2Button
         Pad3ButtonLbl.Text = Pad3Button
         Pad4ButtonLbl.Text = Pad4Button

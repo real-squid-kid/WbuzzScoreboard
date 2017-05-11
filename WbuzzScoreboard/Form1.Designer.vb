@@ -57,7 +57,20 @@ Partial Class Form1
         Me.Pad3ScoreSetBtn = New System.Windows.Forms.Button()
         Me.Pad4ScoreSetBtn = New System.Windows.Forms.Button()
         Me.WbuzzBlinker = New System.Windows.Forms.Timer(Me.components)
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Pad1VoteLbl = New System.Windows.Forms.Label()
+        Me.Pad2VoteLbl = New System.Windows.Forms.Label()
+        Me.Pad3VoteLbl = New System.Windows.Forms.Label()
+        Me.Pad4VoteLbl = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.VoteValueLbl = New System.Windows.Forms.TextBox()
+        Me.Vote1Btn = New System.Windows.Forms.Button()
+        Me.Vote2Btn = New System.Windows.Forms.Button()
+        Me.Vote3Btn = New System.Windows.Forms.Button()
+        Me.Vote4Btn = New System.Windows.Forms.Button()
+        Me.ResetVotingBtn = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -193,7 +206,7 @@ Partial Class Form1
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(374, 52)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "WbuzzScoreboard 0.2.2" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Original work by Vasily ""SquidKid"" Macrov" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Distributed und" &
+        Me.Label2.Text = "WbuzzScoreboard 0.2.2" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Original work by Vasily ""SquidKid"" Makrov" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Distributed und" &
     "er GPL v3 license." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Using AForge library under LGPL v3 license. More: http://www" &
     ".aforgenet.com"
         '
@@ -363,11 +376,130 @@ Partial Class Form1
         '
         Me.WbuzzBlinker.Interval = 250
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.ResetVotingBtn)
+        Me.GroupBox2.Controls.Add(Me.Vote4Btn)
+        Me.GroupBox2.Controls.Add(Me.Vote3Btn)
+        Me.GroupBox2.Controls.Add(Me.Vote2Btn)
+        Me.GroupBox2.Controls.Add(Me.Vote1Btn)
+        Me.GroupBox2.Controls.Add(Me.VoteValueLbl)
+        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Controls.Add(Me.Pad4VoteLbl)
+        Me.GroupBox2.Controls.Add(Me.Pad3VoteLbl)
+        Me.GroupBox2.Controls.Add(Me.Pad2VoteLbl)
+        Me.GroupBox2.Controls.Add(Me.Pad1VoteLbl)
+        Me.GroupBox2.Location = New System.Drawing.Point(408, 13)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(187, 186)
+        Me.GroupBox2.TabIndex = 7
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Voting"
+        '
+        'Pad1VoteLbl
+        '
+        Me.Pad1VoteLbl.AutoSize = True
+        Me.Pad1VoteLbl.Location = New System.Drawing.Point(7, 20)
+        Me.Pad1VoteLbl.Name = "Pad1VoteLbl"
+        Me.Pad1VoteLbl.Size = New System.Drawing.Size(38, 13)
+        Me.Pad1VoteLbl.TabIndex = 0
+        Me.Pad1VoteLbl.Text = "Pad1: "
+        '
+        'Pad2VoteLbl
+        '
+        Me.Pad2VoteLbl.AutoSize = True
+        Me.Pad2VoteLbl.Location = New System.Drawing.Point(7, 43)
+        Me.Pad2VoteLbl.Name = "Pad2VoteLbl"
+        Me.Pad2VoteLbl.Size = New System.Drawing.Size(38, 13)
+        Me.Pad2VoteLbl.TabIndex = 1
+        Me.Pad2VoteLbl.Text = "Pad2: "
+        '
+        'Pad3VoteLbl
+        '
+        Me.Pad3VoteLbl.AutoSize = True
+        Me.Pad3VoteLbl.Location = New System.Drawing.Point(7, 63)
+        Me.Pad3VoteLbl.Name = "Pad3VoteLbl"
+        Me.Pad3VoteLbl.Size = New System.Drawing.Size(38, 13)
+        Me.Pad3VoteLbl.TabIndex = 2
+        Me.Pad3VoteLbl.Text = "Pad3: "
+        '
+        'Pad4VoteLbl
+        '
+        Me.Pad4VoteLbl.AutoSize = True
+        Me.Pad4VoteLbl.Location = New System.Drawing.Point(7, 86)
+        Me.Pad4VoteLbl.Name = "Pad4VoteLbl"
+        Me.Pad4VoteLbl.Size = New System.Drawing.Size(38, 13)
+        Me.Pad4VoteLbl.TabIndex = 3
+        Me.Pad4VoteLbl.Text = "Pad4: "
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(7, 133)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(37, 13)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "Value:"
+        '
+        'VoteValueLbl
+        '
+        Me.VoteValueLbl.Location = New System.Drawing.Point(50, 130)
+        Me.VoteValueLbl.Name = "VoteValueLbl"
+        Me.VoteValueLbl.Size = New System.Drawing.Size(100, 20)
+        Me.VoteValueLbl.TabIndex = 5
+        Me.VoteValueLbl.Text = "10"
+        '
+        'Vote1Btn
+        '
+        Me.Vote1Btn.Location = New System.Drawing.Point(10, 156)
+        Me.Vote1Btn.Name = "Vote1Btn"
+        Me.Vote1Btn.Size = New System.Drawing.Size(34, 23)
+        Me.Vote1Btn.TabIndex = 6
+        Me.Vote1Btn.Text = "1"
+        Me.Vote1Btn.UseVisualStyleBackColor = True
+        '
+        'Vote2Btn
+        '
+        Me.Vote2Btn.Location = New System.Drawing.Point(50, 156)
+        Me.Vote2Btn.Name = "Vote2Btn"
+        Me.Vote2Btn.Size = New System.Drawing.Size(34, 23)
+        Me.Vote2Btn.TabIndex = 7
+        Me.Vote2Btn.Text = "2"
+        Me.Vote2Btn.UseVisualStyleBackColor = True
+        '
+        'Vote3Btn
+        '
+        Me.Vote3Btn.Location = New System.Drawing.Point(90, 156)
+        Me.Vote3Btn.Name = "Vote3Btn"
+        Me.Vote3Btn.Size = New System.Drawing.Size(34, 23)
+        Me.Vote3Btn.TabIndex = 8
+        Me.Vote3Btn.Text = "3"
+        Me.Vote3Btn.UseVisualStyleBackColor = True
+        '
+        'Vote4Btn
+        '
+        Me.Vote4Btn.Location = New System.Drawing.Point(130, 156)
+        Me.Vote4Btn.Name = "Vote4Btn"
+        Me.Vote4Btn.Size = New System.Drawing.Size(34, 23)
+        Me.Vote4Btn.TabIndex = 9
+        Me.Vote4Btn.Text = "4"
+        Me.Vote4Btn.UseVisualStyleBackColor = True
+        '
+        'ResetVotingBtn
+        '
+        Me.ResetVotingBtn.Location = New System.Drawing.Point(106, 15)
+        Me.ResetVotingBtn.Name = "ResetVotingBtn"
+        Me.ResetVotingBtn.Size = New System.Drawing.Size(75, 23)
+        Me.ResetVotingBtn.TabIndex = 10
+        Me.ResetVotingBtn.Text = "Reset voting"
+        Me.ResetVotingBtn.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(466, 433)
+        Me.ClientSize = New System.Drawing.Size(697, 433)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Pad4AddSubBtn)
         Me.Controls.Add(Me.Pad3AddSubBtn)
         Me.Controls.Add(Me.Pad2AddSubBtn)
@@ -393,6 +525,8 @@ Partial Class Form1
         Me.Text = "Control Board"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -432,4 +566,16 @@ Partial Class Form1
     Friend WithEvents Pad3ScoreSetBtn As Button
     Friend WithEvents Pad4ScoreSetBtn As Button
     Friend WithEvents WbuzzBlinker As Timer
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents ResetVotingBtn As Button
+    Friend WithEvents Vote4Btn As Button
+    Friend WithEvents Vote3Btn As Button
+    Friend WithEvents Vote2Btn As Button
+    Friend WithEvents Vote1Btn As Button
+    Friend WithEvents VoteValueLbl As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Pad4VoteLbl As Label
+    Friend WithEvents Pad3VoteLbl As Label
+    Friend WithEvents Pad2VoteLbl As Label
+    Friend WithEvents Pad1VoteLbl As Label
 End Class
