@@ -3,7 +3,7 @@ Imports AForge
 Imports AForge.Controls
 Imports HidLibrary
 Public Class Form1
-    Dim Pad1Button, Pad2Button, Pad3Button, Pad4Button As Boolean
+    Dim Pad1Button, Pad2Button, Pad3Button, Pad4Button As Byte
     Dim Pad1Score, Pad2Score, Pad3Score, Pad4Score As Long
     Dim JoystickID As Byte
     Dim info As List(Of Joystick.DeviceInfo) = Joystick.GetAvailableDevices
@@ -16,7 +16,7 @@ Public Class Form1
         Pad1Score += Pad1ScoreTxt.Text
         Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
         Scoreboard.Reset()
-        DimPads()
+        LightPads(0)
 
     End Sub
 
@@ -24,14 +24,14 @@ Public Class Form1
         Pad2Score += Pad2ScoreTxt.Text
         Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
         Scoreboard.Reset()
-        DimPads()
+        LightPads(0)
     End Sub
 
     Private Sub Pad3AddSubBtn_Click(sender As Object, e As EventArgs) Handles Pad3AddSubBtn.Click
         Pad3Score += Pad3ScoreTxt.Text
         Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
         Scoreboard.Reset()
-        DimPads()
+        LightPads(0)
     End Sub
 
     Private Sub Pad4AddSubBtn_Click(sender As Object, e As EventArgs) Handles Pad4AddSubBtn.Click
@@ -70,130 +70,150 @@ Public Class Form1
         End If
         Scoreboard.Show()
         Scoreboard.Reset()
-        DimPads()
         PressDetect.Start()
+        LightPads(5)
     End Sub
 
     Private Sub WbuzzBlinker_Tick(sender As Object, e As EventArgs) Handles WbuzzBlinker.Tick
         If BlinkState = 2 Then
             Select Case PadBlink
                 Case 0
-                    Dim OutData(7) As Byte
-                    OutData(0) = &H0
-                    OutData(1) = &H0
-                    OutData(2) = &H0
-                    OutData(3) = &H0
-                    OutData(4) = &H0
-                    OutData(5) = &H0
-                    OutData(6) = &H0
-                    OutData(7) = &H0
-                    Pads.Write(OutData)
+                    LightPads(0)
                 Case 1
-                    Dim OutData(7) As Byte
-                    OutData(0) = &H0
-                    OutData(1) = &H0
-                    OutData(2) = &HFF
-                    OutData(3) = &H0
-                    OutData(4) = &H0
-                    OutData(5) = &H0
-                    OutData(6) = &H0
-                    OutData(7) = &H0
-                    Pads.Write(OutData)
+                    LightPads(1)
                 Case 2
-                    Dim OutData(7) As Byte
-                    OutData(0) = &H0
-                    OutData(1) = &H0
-                    OutData(2) = &H0
-                    OutData(3) = &HFF
-                    OutData(4) = &H0
-                    OutData(5) = &H0
-                    OutData(6) = &H0
-                    OutData(7) = &H0
-                    Pads.Write(OutData)
+                    LightPads(2)
                 Case 3
-                    Dim OutData(7) As Byte
-                    OutData(0) = &H0
-                    OutData(1) = &H0
-                    OutData(2) = &H0
-                    OutData(3) = &H0
-                    OutData(4) = &HFF
-                    OutData(5) = &H0
-                    OutData(6) = &H0
-                    OutData(7) = &H0
-                    Pads.Write(OutData)
+                    LightPads(3)
                 Case 4
-                    Dim OutData(7) As Byte
-                    OutData(0) = &H0
-                    OutData(1) = &H0
-                    OutData(2) = &H0
-                    OutData(3) = &H0
-                    OutData(4) = &H0
-                    OutData(5) = &HFF
-                    OutData(6) = &H0
-                    OutData(7) = &H0
-                    Pads.Write(OutData)
+                    LightPads(4)
             End Select
             BlinkState = 1
         Else
             BlinkState = 2
-            Dim OutData(7) As Byte
-            OutData(0) = &H0
-            OutData(1) = &H0
-            OutData(2) = &H0
-            OutData(3) = &H0
-            OutData(4) = &H0
-            OutData(5) = &H0
-            OutData(6) = &H0
-            OutData(7) = &H0
-            Pads.Write(OutData)
+            LightPads(0)
         End If
     End Sub
 
-    Private Sub LED1Chk_CheckedChanged(sender As Object, e As EventArgs) Handles LED1Chk.CheckedChanged, LED2Chk.CheckedChanged, LED3Chk.CheckedChanged, LED4Chk.CheckedChanged
-        Dim OutData(7) As Byte
-        OutData(0) = &H0
-        OutData(1) = &H0
-        If LED1Chk.Checked Then OutData(2) = &HFF Else OutData(2) = &H0
-        If LED2Chk.Checked Then OutData(3) = &HFF Else OutData(3) = &H0
-        If LED3Chk.Checked Then OutData(4) = &HFF Else OutData(4) = &H0
-        If LED4Chk.Checked Then OutData(5) = &HFF Else OutData(5) = &H0
-        OutData(6) = &H0
-        OutData(7) = &H0
-        Pads.Write(OutData)
+    Public Sub LightPads(e As Byte)
+        Select Case e
+            Case 5
+                Dim OutData(7) As Byte
+                OutData(0) = &H0
+                OutData(1) = &H0
+                OutData(2) = &HFF
+                OutData(3) = &HFF
+                OutData(4) = &HFF
+                OutData(5) = &HFF
+                OutData(6) = &H0
+                OutData(7) = &H0
+                Pads.Write(OutData)
+            Case 0
+                Dim OutData(7) As Byte
+                OutData(0) = &H0
+                OutData(1) = &H0
+                OutData(2) = &H0
+                OutData(3) = &H0
+                OutData(4) = &H0
+                OutData(5) = &H0
+                OutData(6) = &H0
+                OutData(7) = &H0
+                Pads.Write(OutData)
+            Case 1
+                Dim OutData(7) As Byte
+                OutData(0) = &H0
+                OutData(1) = &H0
+                OutData(2) = &HFF
+                OutData(3) = &H0
+                OutData(4) = &H0
+                OutData(5) = &H0
+                OutData(6) = &H0
+                OutData(7) = &H0
+                Pads.Write(OutData)
+            Case 2
+                Dim OutData(7) As Byte
+                OutData(0) = &H0
+                OutData(1) = &H0
+                OutData(2) = &H0
+                OutData(3) = &HFF
+                OutData(4) = &H0
+                OutData(5) = &H0
+                OutData(6) = &H0
+                OutData(7) = &H0
+                Pads.Write(OutData)
+            Case 3
+                Dim OutData(7) As Byte
+                OutData(0) = &H0
+                OutData(1) = &H0
+                OutData(2) = &H0
+                OutData(3) = &H0
+                OutData(4) = &HFF
+                OutData(5) = &H0
+                OutData(6) = &H0
+                OutData(7) = &H0
+                Pads.Write(OutData)
+            Case 4
+                Dim OutData(7) As Byte
+                OutData(0) = &H0
+                OutData(1) = &H0
+                OutData(2) = &H0
+                OutData(3) = &H0
+                OutData(4) = &H0
+                OutData(5) = &HFF
+                OutData(6) = &H0
+                OutData(7) = &H0
+                Pads.Write(OutData)
+        End Select
     End Sub
 
     Private Sub PressDetect_Tick(sender As Object, e As EventArgs) Handles PressDetect.Tick
-        If Pad1Button Then
+        If Pad1Button = 5 Then
             RedButton(1)
             Exit Sub
         End If
-        If Pad2Button Then
+        If Pad2Button = 5 Then
             RedButton(2)
             Exit Sub
         End If
-        If Pad3Button Then
+        If Pad3Button = 5 Then
             RedButton(3)
             Exit Sub
         End If
-        If Pad4Button Then
+        If Pad4Button = 5 Then
             RedButton(4)
             Exit Sub
         End If
     End Sub
     Public Sub RedButton(e As Byte)
+        LightPads(0)
         My.Computer.Audio.Play(My.Resources.ff_buzzer, AudioPlayMode.Background)
         Scoreboard.CallOut(e)
         PressDetect.Stop()
         PadBlink = e
         WbuzzBlinker.Start()
+        Select Case e
+            Case 1
+                Pad1ScoreLbl.BackColor = Color.Red
+            Case 2
+                Pad2ScoreLbl.BackColor = Color.Red
+            Case 3
+                Pad3ScoreLbl.BackColor = Color.Red
+            Case 4
+                Pad4ScoreLbl.BackColor = Color.Red
+        End Select
         Exit Sub
     End Sub
 
     Private Sub ResetBtn_Click(sender As Object, e As EventArgs) Handles ResetBtn.Click
         Scoreboard.Reset()
-        DimPads()
         PressDetect.Start()
+        LightPads(5)
+        WbuzzBlinker.Stop()
         PadBlink = 0
+        Pad1ScoreLbl.BackColor = Color.White
+        Pad2ScoreLbl.BackColor = Color.White
+        Pad3ScoreLbl.BackColor = Color.White
+        Pad4ScoreLbl.BackColor = Color.White
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -223,26 +243,13 @@ Public Class Form1
         Catch ex As Exception
             MessageBox.Show("Can't initialize (wrong joystick ID?)", "WbuzzScoreboard", MessageBoxButtons.OK, MessageBoxIcon.Stop)
         End Try
+        'init pads
         Try
             PadsFinder = HidDevices.Enumerate(&H54C).ToList
             Pads = PadsFinder(0)
             Pads.OpenDevice()
-            Dim OutData(7) As Byte
-            OutData(0) = &H0
-            OutData(1) = &H0
-            OutData(2) = &H0
-            OutData(3) = &H0
-            OutData(4) = &H0
-            OutData(5) = &H0
-            OutData(6) = &H0
-            OutData(7) = &H0
-            Pads.Write(OutData)
+            LightPads(0)
             PadBlink = 0
-            WbuzzBlinker.Start()
-            LED1Chk.Enabled = True
-            LED2Chk.Enabled = True
-            LED3Chk.Enabled = True
-            LED4Chk.Enabled = True
         Catch
             MessageBox.Show("Can't initialize Wbuzz pads properly (not connected?)", "WbuzzScoreboard", MessageBoxButtons.OK, MessageBoxIcon.Stop)
         End Try
@@ -256,30 +263,42 @@ Public Class Form1
     Private Sub WbuzzPoller_Tick(sender As Object, e As EventArgs) Handles WbuzzPoller.Tick
         Dim joy As New Joystick(IDNumberTxt.Text)
         Dim status As Joystick.Status = joy.GetCurrentStatus
-        Pad1Button = status.IsButtonPressed(Joystick.Buttons.Button1)
-        Pad2Button = status.IsButtonPressed(Joystick.Buttons.Button6)
-        Pad3Button = status.IsButtonPressed(Joystick.Buttons.Button11)
-        Pad4Button = status.IsButtonPressed(Joystick.Buttons.Button16)
-        If Pad1Button Then
-            Pad1ButtonLbl.BackColor = Color.Red
-        Else
-            Pad1ButtonLbl.BackColor = Color.White
-        End If
-        If Pad2Button Then
-            Pad2ButtonLbl.BackColor = Color.Red
-        Else
-            Pad2ButtonLbl.BackColor = Color.White
-        End If
-        If Pad3Button Then
-            Pad3ButtonLbl.BackColor = Color.Red
-        Else
-            Pad3ButtonLbl.BackColor = Color.White
-        End If
-        If Pad4Button Then
-            Pad4ButtonLbl.BackColor = Color.Red
-        Else
-            Pad4ButtonLbl.BackColor = Color.White
-        End If
+        Dim buttons As String = Convert.ToString(status.Buttons, 2).PadLeft(20, "0"c)
+        Dim PadButtons() As Char
+        PadButtons = buttons.ToCharArray
+
+        Pad1Button = 0
+        If PadButtons(15).Equals("1"c) Then Pad1Button = 1
+        If PadButtons(16).Equals("1"c) Then Pad1Button = 2
+        If PadButtons(17).Equals("1"c) Then Pad1Button = 3
+        If PadButtons(18).Equals("1"c) Then Pad1Button = 4
+        If PadButtons(19).Equals("1"c) Then Pad1Button = 5
+
+        Pad2Button = 0
+        If PadButtons(10).Equals("1"c) Then Pad2Button = 1
+        If PadButtons(11).Equals("1"c) Then Pad2Button = 2
+        If PadButtons(12).Equals("1"c) Then Pad2Button = 3
+        If PadButtons(13).Equals("1"c) Then Pad2Button = 4
+        If PadButtons(14).Equals("1"c) Then Pad2Button = 5
+
+        Pad3Button = 0
+        If PadButtons(5).Equals("1"c) Then Pad3Button = 1
+        If PadButtons(6).Equals("1"c) Then Pad3Button = 2
+        If PadButtons(7).Equals("1"c) Then Pad3Button = 3
+        If PadButtons(8).Equals("1"c) Then Pad3Button = 4
+        If PadButtons(9).Equals("1"c) Then Pad3Button = 5
+
+        Pad4Button = 0
+        If PadButtons(0).Equals("1"c) Then Pad4Button = 1
+        If PadButtons(1).Equals("1"c) Then Pad4Button = 2
+        If PadButtons(2).Equals("1"c) Then Pad4Button = 3
+        If PadButtons(3).Equals("1"c) Then Pad4Button = 4
+        If PadButtons(4).Equals("1"c) Then Pad4Button = 5
+
+        Pad1ButtonLbl.Text = Pad1Button
+        Pad2ButtonLbl.Text = Pad2Button
+        Pad3ButtonLbl.Text = Pad3Button
+        Pad4ButtonLbl.Text = Pad4Button
         Pad1ScoreLbl.Text = "Pad 1: " & Pad1Score
         Pad2ScoreLbl.Text = "Pad 2: " & Pad2Score
         Pad3ScoreLbl.Text = "Pad 3: " & Pad3Score
@@ -293,23 +312,11 @@ Public Class Form1
 
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         Try
-            DimPads()
+            LightPads(0)
             Pads.CloseDevice()
         Catch
         End Try
 
-    End Sub
-    Public Sub DimPads()
-        Dim OutData(7) As Byte
-        OutData(0) = &H0
-        OutData(1) = &H0
-        OutData(2) = &H0
-        OutData(3) = &H0
-        OutData(4) = &H0
-        OutData(5) = &H0
-        OutData(6) = &H0
-        OutData(7) = &H0
-        Pads.Write(OutData)
     End Sub
 
 End Class

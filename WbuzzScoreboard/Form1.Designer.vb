@@ -32,10 +32,6 @@ Partial Class Form1
         Me.Pad3ButtonLbl = New System.Windows.Forms.Label()
         Me.Pad2ButtonLbl = New System.Windows.Forms.Label()
         Me.Pad1ButtonLbl = New System.Windows.Forms.Label()
-        Me.LED4Chk = New System.Windows.Forms.CheckBox()
-        Me.LED3Chk = New System.Windows.Forms.CheckBox()
-        Me.LED2Chk = New System.Windows.Forms.CheckBox()
-        Me.LED1Chk = New System.Windows.Forms.CheckBox()
         Me.WbuzzInitBtn = New System.Windows.Forms.Button()
         Me.WbuzzStatusLbl = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -74,16 +70,12 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.Pad3ButtonLbl)
         Me.GroupBox1.Controls.Add(Me.Pad2ButtonLbl)
         Me.GroupBox1.Controls.Add(Me.Pad1ButtonLbl)
-        Me.GroupBox1.Controls.Add(Me.LED4Chk)
-        Me.GroupBox1.Controls.Add(Me.LED3Chk)
-        Me.GroupBox1.Controls.Add(Me.LED2Chk)
-        Me.GroupBox1.Controls.Add(Me.LED1Chk)
         Me.GroupBox1.Controls.Add(Me.WbuzzInitBtn)
         Me.GroupBox1.Controls.Add(Me.WbuzzStatusLbl)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(13, 13)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(445, 186)
+        Me.GroupBox1.Size = New System.Drawing.Size(389, 186)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Status and Debug"
@@ -91,7 +83,7 @@ Partial Class Form1
         'DeviceListTxt
         '
         Me.DeviceListTxt.Enabled = False
-        Me.DeviceListTxt.Location = New System.Drawing.Point(234, 13)
+        Me.DeviceListTxt.Location = New System.Drawing.Point(177, 13)
         Me.DeviceListTxt.Multiline = True
         Me.DeviceListTxt.Name = "DeviceListTxt"
         Me.DeviceListTxt.Size = New System.Drawing.Size(199, 167)
@@ -127,7 +119,7 @@ Partial Class Form1
         '
         Me.Pad4ButtonLbl.AutoSize = True
         Me.Pad4ButtonLbl.BackColor = System.Drawing.Color.White
-        Me.Pad4ButtonLbl.Location = New System.Drawing.Point(72, 133)
+        Me.Pad4ButtonLbl.Location = New System.Drawing.Point(12, 133)
         Me.Pad4ButtonLbl.Name = "Pad4ButtonLbl"
         Me.Pad4ButtonLbl.Size = New System.Drawing.Size(69, 13)
         Me.Pad4ButtonLbl.TabIndex = 4
@@ -137,7 +129,7 @@ Partial Class Form1
         '
         Me.Pad3ButtonLbl.AutoSize = True
         Me.Pad3ButtonLbl.BackColor = System.Drawing.Color.White
-        Me.Pad3ButtonLbl.Location = New System.Drawing.Point(72, 110)
+        Me.Pad3ButtonLbl.Location = New System.Drawing.Point(12, 110)
         Me.Pad3ButtonLbl.Name = "Pad3ButtonLbl"
         Me.Pad3ButtonLbl.Size = New System.Drawing.Size(69, 13)
         Me.Pad3ButtonLbl.TabIndex = 4
@@ -147,7 +139,7 @@ Partial Class Form1
         '
         Me.Pad2ButtonLbl.AutoSize = True
         Me.Pad2ButtonLbl.BackColor = System.Drawing.Color.White
-        Me.Pad2ButtonLbl.Location = New System.Drawing.Point(72, 86)
+        Me.Pad2ButtonLbl.Location = New System.Drawing.Point(12, 86)
         Me.Pad2ButtonLbl.Name = "Pad2ButtonLbl"
         Me.Pad2ButtonLbl.Size = New System.Drawing.Size(69, 13)
         Me.Pad2ButtonLbl.TabIndex = 4
@@ -157,59 +149,11 @@ Partial Class Form1
         '
         Me.Pad1ButtonLbl.AutoSize = True
         Me.Pad1ButtonLbl.BackColor = System.Drawing.Color.White
-        Me.Pad1ButtonLbl.Location = New System.Drawing.Point(72, 63)
+        Me.Pad1ButtonLbl.Location = New System.Drawing.Point(12, 63)
         Me.Pad1ButtonLbl.Name = "Pad1ButtonLbl"
         Me.Pad1ButtonLbl.Size = New System.Drawing.Size(69, 13)
         Me.Pad1ButtonLbl.TabIndex = 4
         Me.Pad1ButtonLbl.Text = "Pad 1 Button"
-        '
-        'LED4Chk
-        '
-        Me.LED4Chk.AutoSize = True
-        Me.LED4Chk.Enabled = False
-        Me.LED4Chk.Location = New System.Drawing.Point(9, 132)
-        Me.LED4Chk.Name = "LED4Chk"
-        Me.LED4Chk.Size = New System.Drawing.Size(56, 17)
-        Me.LED4Chk.TabIndex = 3
-        Me.LED4Chk.Text = "LED 4"
-        Me.LED4Chk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LED4Chk.UseVisualStyleBackColor = True
-        '
-        'LED3Chk
-        '
-        Me.LED3Chk.AutoSize = True
-        Me.LED3Chk.Enabled = False
-        Me.LED3Chk.Location = New System.Drawing.Point(9, 109)
-        Me.LED3Chk.Name = "LED3Chk"
-        Me.LED3Chk.Size = New System.Drawing.Size(56, 17)
-        Me.LED3Chk.TabIndex = 3
-        Me.LED3Chk.Text = "LED 3"
-        Me.LED3Chk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LED3Chk.UseVisualStyleBackColor = True
-        '
-        'LED2Chk
-        '
-        Me.LED2Chk.AutoSize = True
-        Me.LED2Chk.Enabled = False
-        Me.LED2Chk.Location = New System.Drawing.Point(9, 86)
-        Me.LED2Chk.Name = "LED2Chk"
-        Me.LED2Chk.Size = New System.Drawing.Size(56, 17)
-        Me.LED2Chk.TabIndex = 3
-        Me.LED2Chk.Text = "LED 2"
-        Me.LED2Chk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LED2Chk.UseVisualStyleBackColor = True
-        '
-        'LED1Chk
-        '
-        Me.LED1Chk.AutoSize = True
-        Me.LED1Chk.Enabled = False
-        Me.LED1Chk.Location = New System.Drawing.Point(9, 63)
-        Me.LED1Chk.Name = "LED1Chk"
-        Me.LED1Chk.Size = New System.Drawing.Size(56, 17)
-        Me.LED1Chk.TabIndex = 3
-        Me.LED1Chk.Text = "LED 1"
-        Me.LED1Chk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LED1Chk.UseVisualStyleBackColor = True
         '
         'WbuzzInitBtn
         '
@@ -240,7 +184,7 @@ Partial Class Form1
         '
         'WbuzzPoller
         '
-        Me.WbuzzPoller.Interval = 30
+        Me.WbuzzPoller.Interval = 20
         '
         'Label2
         '
@@ -249,9 +193,9 @@ Partial Class Form1
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(374, 52)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "WbuzzScoreboard 0.2" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Original work by Vasily ""SquidKid"" Macrov" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Distributed under" &
-    " GPL v3 license." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Using AForge library under LGPL v3 license. More: http://www.a" &
-    "forgenet.com"
+        Me.Label2.Text = "WbuzzScoreboard 0.2.2" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Original work by Vasily ""SquidKid"" Macrov" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Distributed und" &
+    "er GPL v3 license." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Using AForge library under LGPL v3 license. More: http://www" &
+    ".aforgenet.com"
         '
         'ShowScreen
         '
@@ -273,7 +217,7 @@ Partial Class Form1
         '
         'PressDetect
         '
-        Me.PressDetect.Interval = 30
+        Me.PressDetect.Interval = 20
         '
         'Pad1ScoreTxt
         '
@@ -459,10 +403,6 @@ Partial Class Form1
     Friend WithEvents Pad3ButtonLbl As Label
     Friend WithEvents Pad2ButtonLbl As Label
     Friend WithEvents Pad1ButtonLbl As Label
-    Friend WithEvents LED4Chk As CheckBox
-    Friend WithEvents LED3Chk As CheckBox
-    Friend WithEvents LED2Chk As CheckBox
-    Friend WithEvents LED1Chk As CheckBox
     Friend WithEvents WbuzzInitBtn As Button
     Friend WithEvents WbuzzStatusLbl As Label
     Friend WithEvents Label1 As Label
