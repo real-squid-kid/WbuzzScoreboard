@@ -58,17 +58,22 @@ Partial Class Form1
         Me.Pad4ScoreSetBtn = New System.Windows.Forms.Button()
         Me.WbuzzBlinker = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Pad1VoteLbl = New System.Windows.Forms.Label()
-        Me.Pad2VoteLbl = New System.Windows.Forms.Label()
-        Me.Pad3VoteLbl = New System.Windows.Forms.Label()
-        Me.Pad4VoteLbl = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.VoteValueLbl = New System.Windows.Forms.TextBox()
-        Me.Vote1Btn = New System.Windows.Forms.Button()
-        Me.Vote2Btn = New System.Windows.Forms.Button()
-        Me.Vote3Btn = New System.Windows.Forms.Button()
-        Me.Vote4Btn = New System.Windows.Forms.Button()
         Me.ResetVotingBtn = New System.Windows.Forms.Button()
+        Me.Vote4Btn = New System.Windows.Forms.Button()
+        Me.Vote3Btn = New System.Windows.Forms.Button()
+        Me.Vote2Btn = New System.Windows.Forms.Button()
+        Me.Vote1Btn = New System.Windows.Forms.Button()
+        Me.VoteValueLbl = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Pad4VoteLbl = New System.Windows.Forms.Label()
+        Me.Pad3VoteLbl = New System.Windows.Forms.Label()
+        Me.Pad2VoteLbl = New System.Windows.Forms.Label()
+        Me.Pad1VoteLbl = New System.Windows.Forms.Label()
+        Me.Pad1NameTxt = New System.Windows.Forms.TextBox()
+        Me.Pad2NameTxt = New System.Windows.Forms.TextBox()
+        Me.Pad3NameTxt = New System.Windows.Forms.TextBox()
+        Me.Pad4NameTxt = New System.Windows.Forms.TextBox()
+        Me.BuzzActiveChk = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -202,7 +207,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(10, 372)
+        Me.Label2.Location = New System.Drawing.Point(12, 411)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(374, 52)
         Me.Label2.TabIndex = 1
@@ -234,7 +239,7 @@ Partial Class Form1
         '
         'Pad1ScoreTxt
         '
-        Me.Pad1ScoreTxt.Location = New System.Drawing.Point(13, 279)
+        Me.Pad1ScoreTxt.Location = New System.Drawing.Point(15, 319)
         Me.Pad1ScoreTxt.Name = "Pad1ScoreTxt"
         Me.Pad1ScoreTxt.Size = New System.Drawing.Size(100, 20)
         Me.Pad1ScoreTxt.TabIndex = 4
@@ -242,7 +247,7 @@ Partial Class Form1
         '
         'Pad2ScoreTxt
         '
-        Me.Pad2ScoreTxt.Location = New System.Drawing.Point(119, 279)
+        Me.Pad2ScoreTxt.Location = New System.Drawing.Point(121, 319)
         Me.Pad2ScoreTxt.Name = "Pad2ScoreTxt"
         Me.Pad2ScoreTxt.Size = New System.Drawing.Size(100, 20)
         Me.Pad2ScoreTxt.TabIndex = 4
@@ -250,7 +255,7 @@ Partial Class Form1
         '
         'Pad3ScoreTxt
         '
-        Me.Pad3ScoreTxt.Location = New System.Drawing.Point(225, 279)
+        Me.Pad3ScoreTxt.Location = New System.Drawing.Point(227, 319)
         Me.Pad3ScoreTxt.Name = "Pad3ScoreTxt"
         Me.Pad3ScoreTxt.Size = New System.Drawing.Size(100, 20)
         Me.Pad3ScoreTxt.TabIndex = 4
@@ -258,7 +263,7 @@ Partial Class Form1
         '
         'Pad4ScoreTxt
         '
-        Me.Pad4ScoreTxt.Location = New System.Drawing.Point(331, 279)
+        Me.Pad4ScoreTxt.Location = New System.Drawing.Point(333, 319)
         Me.Pad4ScoreTxt.Name = "Pad4ScoreTxt"
         Me.Pad4ScoreTxt.Size = New System.Drawing.Size(100, 20)
         Me.Pad4ScoreTxt.TabIndex = 4
@@ -267,7 +272,7 @@ Partial Class Form1
         'Pad1ScoreLbl
         '
         Me.Pad1ScoreLbl.AutoSize = True
-        Me.Pad1ScoreLbl.Location = New System.Drawing.Point(12, 263)
+        Me.Pad1ScoreLbl.Location = New System.Drawing.Point(14, 303)
         Me.Pad1ScoreLbl.Name = "Pad1ScoreLbl"
         Me.Pad1ScoreLbl.Size = New System.Drawing.Size(94, 13)
         Me.Pad1ScoreLbl.TabIndex = 5
@@ -276,7 +281,7 @@ Partial Class Form1
         'Pad2ScoreLbl
         '
         Me.Pad2ScoreLbl.AutoSize = True
-        Me.Pad2ScoreLbl.Location = New System.Drawing.Point(116, 263)
+        Me.Pad2ScoreLbl.Location = New System.Drawing.Point(118, 303)
         Me.Pad2ScoreLbl.Name = "Pad2ScoreLbl"
         Me.Pad2ScoreLbl.Size = New System.Drawing.Size(94, 13)
         Me.Pad2ScoreLbl.TabIndex = 5
@@ -285,7 +290,7 @@ Partial Class Form1
         'Pad3ScoreLbl
         '
         Me.Pad3ScoreLbl.AutoSize = True
-        Me.Pad3ScoreLbl.Location = New System.Drawing.Point(222, 263)
+        Me.Pad3ScoreLbl.Location = New System.Drawing.Point(224, 303)
         Me.Pad3ScoreLbl.Name = "Pad3ScoreLbl"
         Me.Pad3ScoreLbl.Size = New System.Drawing.Size(94, 13)
         Me.Pad3ScoreLbl.TabIndex = 5
@@ -294,7 +299,7 @@ Partial Class Form1
         'Pad4ScoreLbl
         '
         Me.Pad4ScoreLbl.AutoSize = True
-        Me.Pad4ScoreLbl.Location = New System.Drawing.Point(328, 263)
+        Me.Pad4ScoreLbl.Location = New System.Drawing.Point(330, 303)
         Me.Pad4ScoreLbl.Name = "Pad4ScoreLbl"
         Me.Pad4ScoreLbl.Size = New System.Drawing.Size(94, 13)
         Me.Pad4ScoreLbl.TabIndex = 5
@@ -302,7 +307,7 @@ Partial Class Form1
         '
         'Pad1AddSubBtn
         '
-        Me.Pad1AddSubBtn.Location = New System.Drawing.Point(13, 306)
+        Me.Pad1AddSubBtn.Location = New System.Drawing.Point(15, 346)
         Me.Pad1AddSubBtn.Name = "Pad1AddSubBtn"
         Me.Pad1AddSubBtn.Size = New System.Drawing.Size(100, 23)
         Me.Pad1AddSubBtn.TabIndex = 6
@@ -311,7 +316,7 @@ Partial Class Form1
         '
         'Pad2AddSubBtn
         '
-        Me.Pad2AddSubBtn.Location = New System.Drawing.Point(119, 306)
+        Me.Pad2AddSubBtn.Location = New System.Drawing.Point(121, 346)
         Me.Pad2AddSubBtn.Name = "Pad2AddSubBtn"
         Me.Pad2AddSubBtn.Size = New System.Drawing.Size(100, 23)
         Me.Pad2AddSubBtn.TabIndex = 6
@@ -320,7 +325,7 @@ Partial Class Form1
         '
         'Pad3AddSubBtn
         '
-        Me.Pad3AddSubBtn.Location = New System.Drawing.Point(225, 306)
+        Me.Pad3AddSubBtn.Location = New System.Drawing.Point(227, 346)
         Me.Pad3AddSubBtn.Name = "Pad3AddSubBtn"
         Me.Pad3AddSubBtn.Size = New System.Drawing.Size(100, 23)
         Me.Pad3AddSubBtn.TabIndex = 6
@@ -329,7 +334,7 @@ Partial Class Form1
         '
         'Pad4AddSubBtn
         '
-        Me.Pad4AddSubBtn.Location = New System.Drawing.Point(331, 306)
+        Me.Pad4AddSubBtn.Location = New System.Drawing.Point(333, 346)
         Me.Pad4AddSubBtn.Name = "Pad4AddSubBtn"
         Me.Pad4AddSubBtn.Size = New System.Drawing.Size(100, 23)
         Me.Pad4AddSubBtn.TabIndex = 6
@@ -338,7 +343,7 @@ Partial Class Form1
         '
         'Pad1ScoreSetBtn
         '
-        Me.Pad1ScoreSetBtn.Location = New System.Drawing.Point(13, 335)
+        Me.Pad1ScoreSetBtn.Location = New System.Drawing.Point(15, 375)
         Me.Pad1ScoreSetBtn.Name = "Pad1ScoreSetBtn"
         Me.Pad1ScoreSetBtn.Size = New System.Drawing.Size(100, 23)
         Me.Pad1ScoreSetBtn.TabIndex = 6
@@ -347,7 +352,7 @@ Partial Class Form1
         '
         'Pad2ScoreSetBtn
         '
-        Me.Pad2ScoreSetBtn.Location = New System.Drawing.Point(119, 335)
+        Me.Pad2ScoreSetBtn.Location = New System.Drawing.Point(121, 375)
         Me.Pad2ScoreSetBtn.Name = "Pad2ScoreSetBtn"
         Me.Pad2ScoreSetBtn.Size = New System.Drawing.Size(100, 23)
         Me.Pad2ScoreSetBtn.TabIndex = 6
@@ -356,7 +361,7 @@ Partial Class Form1
         '
         'Pad3ScoreSetBtn
         '
-        Me.Pad3ScoreSetBtn.Location = New System.Drawing.Point(225, 335)
+        Me.Pad3ScoreSetBtn.Location = New System.Drawing.Point(227, 375)
         Me.Pad3ScoreSetBtn.Name = "Pad3ScoreSetBtn"
         Me.Pad3ScoreSetBtn.Size = New System.Drawing.Size(100, 23)
         Me.Pad3ScoreSetBtn.TabIndex = 6
@@ -365,7 +370,7 @@ Partial Class Form1
         '
         'Pad4ScoreSetBtn
         '
-        Me.Pad4ScoreSetBtn.Location = New System.Drawing.Point(331, 335)
+        Me.Pad4ScoreSetBtn.Location = New System.Drawing.Point(333, 375)
         Me.Pad4ScoreSetBtn.Name = "Pad4ScoreSetBtn"
         Me.Pad4ScoreSetBtn.Size = New System.Drawing.Size(100, 23)
         Me.Pad4ScoreSetBtn.TabIndex = 6
@@ -396,85 +401,14 @@ Partial Class Form1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Voting"
         '
-        'Pad1VoteLbl
+        'ResetVotingBtn
         '
-        Me.Pad1VoteLbl.AutoSize = True
-        Me.Pad1VoteLbl.Location = New System.Drawing.Point(7, 20)
-        Me.Pad1VoteLbl.Name = "Pad1VoteLbl"
-        Me.Pad1VoteLbl.Size = New System.Drawing.Size(38, 13)
-        Me.Pad1VoteLbl.TabIndex = 0
-        Me.Pad1VoteLbl.Text = "Pad1: "
-        '
-        'Pad2VoteLbl
-        '
-        Me.Pad2VoteLbl.AutoSize = True
-        Me.Pad2VoteLbl.Location = New System.Drawing.Point(7, 43)
-        Me.Pad2VoteLbl.Name = "Pad2VoteLbl"
-        Me.Pad2VoteLbl.Size = New System.Drawing.Size(38, 13)
-        Me.Pad2VoteLbl.TabIndex = 1
-        Me.Pad2VoteLbl.Text = "Pad2: "
-        '
-        'Pad3VoteLbl
-        '
-        Me.Pad3VoteLbl.AutoSize = True
-        Me.Pad3VoteLbl.Location = New System.Drawing.Point(7, 63)
-        Me.Pad3VoteLbl.Name = "Pad3VoteLbl"
-        Me.Pad3VoteLbl.Size = New System.Drawing.Size(38, 13)
-        Me.Pad3VoteLbl.TabIndex = 2
-        Me.Pad3VoteLbl.Text = "Pad3: "
-        '
-        'Pad4VoteLbl
-        '
-        Me.Pad4VoteLbl.AutoSize = True
-        Me.Pad4VoteLbl.Location = New System.Drawing.Point(7, 86)
-        Me.Pad4VoteLbl.Name = "Pad4VoteLbl"
-        Me.Pad4VoteLbl.Size = New System.Drawing.Size(38, 13)
-        Me.Pad4VoteLbl.TabIndex = 3
-        Me.Pad4VoteLbl.Text = "Pad4: "
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(7, 133)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(37, 13)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Value:"
-        '
-        'VoteValueLbl
-        '
-        Me.VoteValueLbl.Location = New System.Drawing.Point(50, 130)
-        Me.VoteValueLbl.Name = "VoteValueLbl"
-        Me.VoteValueLbl.Size = New System.Drawing.Size(100, 20)
-        Me.VoteValueLbl.TabIndex = 5
-        Me.VoteValueLbl.Text = "10"
-        '
-        'Vote1Btn
-        '
-        Me.Vote1Btn.Location = New System.Drawing.Point(10, 156)
-        Me.Vote1Btn.Name = "Vote1Btn"
-        Me.Vote1Btn.Size = New System.Drawing.Size(34, 23)
-        Me.Vote1Btn.TabIndex = 6
-        Me.Vote1Btn.Text = "1"
-        Me.Vote1Btn.UseVisualStyleBackColor = True
-        '
-        'Vote2Btn
-        '
-        Me.Vote2Btn.Location = New System.Drawing.Point(50, 156)
-        Me.Vote2Btn.Name = "Vote2Btn"
-        Me.Vote2Btn.Size = New System.Drawing.Size(34, 23)
-        Me.Vote2Btn.TabIndex = 7
-        Me.Vote2Btn.Text = "2"
-        Me.Vote2Btn.UseVisualStyleBackColor = True
-        '
-        'Vote3Btn
-        '
-        Me.Vote3Btn.Location = New System.Drawing.Point(90, 156)
-        Me.Vote3Btn.Name = "Vote3Btn"
-        Me.Vote3Btn.Size = New System.Drawing.Size(34, 23)
-        Me.Vote3Btn.TabIndex = 8
-        Me.Vote3Btn.Text = "3"
-        Me.Vote3Btn.UseVisualStyleBackColor = True
+        Me.ResetVotingBtn.Location = New System.Drawing.Point(106, 15)
+        Me.ResetVotingBtn.Name = "ResetVotingBtn"
+        Me.ResetVotingBtn.Size = New System.Drawing.Size(75, 23)
+        Me.ResetVotingBtn.TabIndex = 10
+        Me.ResetVotingBtn.Text = "Reset voting"
+        Me.ResetVotingBtn.UseVisualStyleBackColor = True
         '
         'Vote4Btn
         '
@@ -485,20 +419,140 @@ Partial Class Form1
         Me.Vote4Btn.Text = "4"
         Me.Vote4Btn.UseVisualStyleBackColor = True
         '
-        'ResetVotingBtn
+        'Vote3Btn
         '
-        Me.ResetVotingBtn.Location = New System.Drawing.Point(106, 15)
-        Me.ResetVotingBtn.Name = "ResetVotingBtn"
-        Me.ResetVotingBtn.Size = New System.Drawing.Size(75, 23)
-        Me.ResetVotingBtn.TabIndex = 10
-        Me.ResetVotingBtn.Text = "Reset voting"
-        Me.ResetVotingBtn.UseVisualStyleBackColor = True
+        Me.Vote3Btn.Location = New System.Drawing.Point(90, 156)
+        Me.Vote3Btn.Name = "Vote3Btn"
+        Me.Vote3Btn.Size = New System.Drawing.Size(34, 23)
+        Me.Vote3Btn.TabIndex = 8
+        Me.Vote3Btn.Text = "3"
+        Me.Vote3Btn.UseVisualStyleBackColor = True
+        '
+        'Vote2Btn
+        '
+        Me.Vote2Btn.Location = New System.Drawing.Point(50, 156)
+        Me.Vote2Btn.Name = "Vote2Btn"
+        Me.Vote2Btn.Size = New System.Drawing.Size(34, 23)
+        Me.Vote2Btn.TabIndex = 7
+        Me.Vote2Btn.Text = "2"
+        Me.Vote2Btn.UseVisualStyleBackColor = True
+        '
+        'Vote1Btn
+        '
+        Me.Vote1Btn.Location = New System.Drawing.Point(10, 156)
+        Me.Vote1Btn.Name = "Vote1Btn"
+        Me.Vote1Btn.Size = New System.Drawing.Size(34, 23)
+        Me.Vote1Btn.TabIndex = 6
+        Me.Vote1Btn.Text = "1"
+        Me.Vote1Btn.UseVisualStyleBackColor = True
+        '
+        'VoteValueLbl
+        '
+        Me.VoteValueLbl.Location = New System.Drawing.Point(50, 130)
+        Me.VoteValueLbl.Name = "VoteValueLbl"
+        Me.VoteValueLbl.Size = New System.Drawing.Size(100, 20)
+        Me.VoteValueLbl.TabIndex = 5
+        Me.VoteValueLbl.Text = "10"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(7, 133)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(37, 13)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "Value:"
+        '
+        'Pad4VoteLbl
+        '
+        Me.Pad4VoteLbl.AutoSize = True
+        Me.Pad4VoteLbl.Location = New System.Drawing.Point(7, 86)
+        Me.Pad4VoteLbl.Name = "Pad4VoteLbl"
+        Me.Pad4VoteLbl.Size = New System.Drawing.Size(38, 13)
+        Me.Pad4VoteLbl.TabIndex = 3
+        Me.Pad4VoteLbl.Text = "Pad4: "
+        '
+        'Pad3VoteLbl
+        '
+        Me.Pad3VoteLbl.AutoSize = True
+        Me.Pad3VoteLbl.Location = New System.Drawing.Point(7, 63)
+        Me.Pad3VoteLbl.Name = "Pad3VoteLbl"
+        Me.Pad3VoteLbl.Size = New System.Drawing.Size(38, 13)
+        Me.Pad3VoteLbl.TabIndex = 2
+        Me.Pad3VoteLbl.Text = "Pad3: "
+        '
+        'Pad2VoteLbl
+        '
+        Me.Pad2VoteLbl.AutoSize = True
+        Me.Pad2VoteLbl.Location = New System.Drawing.Point(7, 43)
+        Me.Pad2VoteLbl.Name = "Pad2VoteLbl"
+        Me.Pad2VoteLbl.Size = New System.Drawing.Size(38, 13)
+        Me.Pad2VoteLbl.TabIndex = 1
+        Me.Pad2VoteLbl.Text = "Pad2: "
+        '
+        'Pad1VoteLbl
+        '
+        Me.Pad1VoteLbl.AutoSize = True
+        Me.Pad1VoteLbl.Location = New System.Drawing.Point(7, 20)
+        Me.Pad1VoteLbl.Name = "Pad1VoteLbl"
+        Me.Pad1VoteLbl.Size = New System.Drawing.Size(38, 13)
+        Me.Pad1VoteLbl.TabIndex = 0
+        Me.Pad1VoteLbl.Text = "Pad1: "
+        '
+        'Pad1NameTxt
+        '
+        Me.Pad1NameTxt.Location = New System.Drawing.Point(15, 280)
+        Me.Pad1NameTxt.Name = "Pad1NameTxt"
+        Me.Pad1NameTxt.Size = New System.Drawing.Size(100, 20)
+        Me.Pad1NameTxt.TabIndex = 8
+        Me.Pad1NameTxt.Text = "Player 1"
+        '
+        'Pad2NameTxt
+        '
+        Me.Pad2NameTxt.Location = New System.Drawing.Point(121, 280)
+        Me.Pad2NameTxt.Name = "Pad2NameTxt"
+        Me.Pad2NameTxt.Size = New System.Drawing.Size(100, 20)
+        Me.Pad2NameTxt.TabIndex = 8
+        Me.Pad2NameTxt.Text = "Player 2"
+        '
+        'Pad3NameTxt
+        '
+        Me.Pad3NameTxt.Location = New System.Drawing.Point(227, 280)
+        Me.Pad3NameTxt.Name = "Pad3NameTxt"
+        Me.Pad3NameTxt.Size = New System.Drawing.Size(100, 20)
+        Me.Pad3NameTxt.TabIndex = 8
+        Me.Pad3NameTxt.Text = "Player 3"
+        '
+        'Pad4NameTxt
+        '
+        Me.Pad4NameTxt.Location = New System.Drawing.Point(333, 280)
+        Me.Pad4NameTxt.Name = "Pad4NameTxt"
+        Me.Pad4NameTxt.Size = New System.Drawing.Size(100, 20)
+        Me.Pad4NameTxt.TabIndex = 8
+        Me.Pad4NameTxt.Text = "Player 4"
+        '
+        'BuzzActiveChk
+        '
+        Me.BuzzActiveChk.AutoSize = True
+        Me.BuzzActiveChk.Checked = True
+        Me.BuzzActiveChk.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.BuzzActiveChk.Location = New System.Drawing.Point(216, 211)
+        Me.BuzzActiveChk.Name = "BuzzActiveChk"
+        Me.BuzzActiveChk.Size = New System.Drawing.Size(92, 17)
+        Me.BuzzActiveChk.TabIndex = 9
+        Me.BuzzActiveChk.Text = "Buzz-in active"
+        Me.BuzzActiveChk.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(697, 433)
+        Me.ClientSize = New System.Drawing.Size(609, 472)
+        Me.Controls.Add(Me.BuzzActiveChk)
+        Me.Controls.Add(Me.Pad4NameTxt)
+        Me.Controls.Add(Me.Pad3NameTxt)
+        Me.Controls.Add(Me.Pad2NameTxt)
+        Me.Controls.Add(Me.Pad1NameTxt)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Pad4AddSubBtn)
         Me.Controls.Add(Me.Pad3AddSubBtn)
@@ -578,4 +632,9 @@ Partial Class Form1
     Friend WithEvents Pad3VoteLbl As Label
     Friend WithEvents Pad2VoteLbl As Label
     Friend WithEvents Pad1VoteLbl As Label
+    Friend WithEvents Pad1NameTxt As TextBox
+    Friend WithEvents Pad2NameTxt As TextBox
+    Friend WithEvents Pad3NameTxt As TextBox
+    Friend WithEvents Pad4NameTxt As TextBox
+    Friend WithEvents BuzzActiveChk As CheckBox
 End Class

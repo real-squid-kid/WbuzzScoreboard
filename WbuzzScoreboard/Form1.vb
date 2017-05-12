@@ -179,14 +179,33 @@ Public Class Form1
         Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
     End Sub
 
+    Private Sub Pad1NameTxt_TextChanged(sender As Object, e As EventArgs) Handles Pad1NameTxt.TextChanged
+        Scoreboard.Pad1NameLbl.Text = Pad1NameTxt.Text
+    End Sub
+
+    Private Sub Pad2NameTxt_TextChanged(sender As Object, e As EventArgs) Handles Pad2NameTxt.TextChanged
+        Scoreboard.Pad2NameLbl.Text = Pad2NameTxt.Text
+    End Sub
+
+    Private Sub Pad3NameTxt_TextChanged(sender As Object, e As EventArgs) Handles Pad3NameTxt.TextChanged
+        Scoreboard.Pad3NameLbl.Text = Pad3NameTxt.Text
+    End Sub
+
+    Private Sub Pad4NameTxt_TextChanged(sender As Object, e As EventArgs) Handles Pad4NameTxt.TextChanged
+        Scoreboard.Pad4NameLbl.Text = Pad4NameTxt.Text
+    End Sub
+
     Private Sub ShowScreen_Click(sender As Object, e As EventArgs) Handles ShowScreen.Click
         If WbuzzStatusLbl.Text = "WbuzzStatus" Then
             MessageBox.Show("You'll probably want to initialize joystick first.", "WbuzzScoreBoard", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
         Scoreboard.Show()
         Scoreboard.Reset()
-        PressDetect.Start()
-        LightPads(5)
+        If BuzzActiveChk.Checked Then
+            PressDetect.Start()
+            LightPads(5)
+        End If
+
     End Sub
 
     Private Sub WbuzzBlinker_Tick(sender As Object, e As EventArgs) Handles WbuzzBlinker.Tick
@@ -321,8 +340,10 @@ Public Class Form1
 
     Private Sub ResetBtn_Click(sender As Object, e As EventArgs) Handles ResetBtn.Click
         Scoreboard.Reset()
-        PressDetect.Start()
-        LightPads(5)
+        If BuzzActiveChk.Checked Then
+            PressDetect.Start()
+            LightPads(5)
+        End If
         WbuzzBlinker.Stop()
         PadBlink = 0
         Pad1ScoreLbl.BackColor = Color.White
