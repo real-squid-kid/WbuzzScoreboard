@@ -195,6 +195,34 @@ Public Class Form1
         Scoreboard.Pad4NameLbl.Text = Pad4NameTxt.Text
     End Sub
 
+    Private Sub Pad1SubBtn_Click(sender As Object, e As EventArgs) Handles Pad1SubBtn.Click
+        Pad1Score -= Pad1ScoreTxt.Text
+        Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
+        Scoreboard.Reset()
+        LightPads(0)
+    End Sub
+
+    Private Sub Pad2SubBtn_Click(sender As Object, e As EventArgs) Handles Pad2SubBtn.Click
+        Pad2Score -= Pad2ScoreTxt.Text
+        Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
+        Scoreboard.Reset()
+        LightPads(0)
+    End Sub
+
+    Private Sub Pad3SubBtn_Click(sender As Object, e As EventArgs) Handles Pad3SubBtn.Click
+        Pad3Score -= Pad3ScoreTxt.Text
+        Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
+        Scoreboard.Reset()
+        LightPads(0)
+    End Sub
+
+    Private Sub Pad4SubBtn_Click(sender As Object, e As EventArgs) Handles Pad4SubBtn.Click
+        Pad4Score -= Pad4ScoreTxt.Text
+        Scoreboard.Sync(Pad1Score, Pad2Score, Pad3Score, Pad4Score)
+        Scoreboard.Reset()
+        LightPads(0)
+    End Sub
+
     Private Sub ShowScreen_Click(sender As Object, e As EventArgs) Handles ShowScreen.Click
         If WbuzzStatusLbl.Text = "WbuzzStatus" Then
             MessageBox.Show("You'll probably want to initialize joystick first.", "WbuzzScoreBoard", MessageBoxButtons.OK, MessageBoxIcon.Information)

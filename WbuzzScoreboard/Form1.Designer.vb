@@ -74,6 +74,10 @@ Partial Class Form1
         Me.Pad3NameTxt = New System.Windows.Forms.TextBox()
         Me.Pad4NameTxt = New System.Windows.Forms.TextBox()
         Me.BuzzActiveChk = New System.Windows.Forms.CheckBox()
+        Me.Pad1SubBtn = New System.Windows.Forms.Button()
+        Me.Pad2SubBtn = New System.Windows.Forms.Button()
+        Me.Pad3SubBtn = New System.Windows.Forms.Button()
+        Me.Pad4SubBtn = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -309,36 +313,36 @@ Partial Class Form1
         '
         Me.Pad1AddSubBtn.Location = New System.Drawing.Point(15, 346)
         Me.Pad1AddSubBtn.Name = "Pad1AddSubBtn"
-        Me.Pad1AddSubBtn.Size = New System.Drawing.Size(100, 23)
+        Me.Pad1AddSubBtn.Size = New System.Drawing.Size(48, 23)
         Me.Pad1AddSubBtn.TabIndex = 6
-        Me.Pad1AddSubBtn.Text = "Add/Subtract"
+        Me.Pad1AddSubBtn.Text = "Add"
         Me.Pad1AddSubBtn.UseVisualStyleBackColor = True
         '
         'Pad2AddSubBtn
         '
         Me.Pad2AddSubBtn.Location = New System.Drawing.Point(121, 346)
         Me.Pad2AddSubBtn.Name = "Pad2AddSubBtn"
-        Me.Pad2AddSubBtn.Size = New System.Drawing.Size(100, 23)
+        Me.Pad2AddSubBtn.Size = New System.Drawing.Size(47, 23)
         Me.Pad2AddSubBtn.TabIndex = 6
-        Me.Pad2AddSubBtn.Text = "Add/Subtract"
+        Me.Pad2AddSubBtn.Text = "Add"
         Me.Pad2AddSubBtn.UseVisualStyleBackColor = True
         '
         'Pad3AddSubBtn
         '
         Me.Pad3AddSubBtn.Location = New System.Drawing.Point(227, 346)
         Me.Pad3AddSubBtn.Name = "Pad3AddSubBtn"
-        Me.Pad3AddSubBtn.Size = New System.Drawing.Size(100, 23)
+        Me.Pad3AddSubBtn.Size = New System.Drawing.Size(48, 23)
         Me.Pad3AddSubBtn.TabIndex = 6
-        Me.Pad3AddSubBtn.Text = "Add/Subtract"
+        Me.Pad3AddSubBtn.Text = "Add"
         Me.Pad3AddSubBtn.UseVisualStyleBackColor = True
         '
         'Pad4AddSubBtn
         '
         Me.Pad4AddSubBtn.Location = New System.Drawing.Point(333, 346)
         Me.Pad4AddSubBtn.Name = "Pad4AddSubBtn"
-        Me.Pad4AddSubBtn.Size = New System.Drawing.Size(100, 23)
+        Me.Pad4AddSubBtn.Size = New System.Drawing.Size(50, 23)
         Me.Pad4AddSubBtn.TabIndex = 6
-        Me.Pad4AddSubBtn.Text = "Add/Subtract"
+        Me.Pad4AddSubBtn.Text = "Add"
         Me.Pad4AddSubBtn.UseVisualStyleBackColor = True
         '
         'Pad1ScoreSetBtn
@@ -543,6 +547,42 @@ Partial Class Form1
         Me.BuzzActiveChk.Text = "Buzz-in active"
         Me.BuzzActiveChk.UseVisualStyleBackColor = True
         '
+        'Pad1SubBtn
+        '
+        Me.Pad1SubBtn.Location = New System.Drawing.Point(64, 346)
+        Me.Pad1SubBtn.Name = "Pad1SubBtn"
+        Me.Pad1SubBtn.Size = New System.Drawing.Size(51, 23)
+        Me.Pad1SubBtn.TabIndex = 6
+        Me.Pad1SubBtn.Text = "Sub"
+        Me.Pad1SubBtn.UseVisualStyleBackColor = True
+        '
+        'Pad2SubBtn
+        '
+        Me.Pad2SubBtn.Location = New System.Drawing.Point(170, 346)
+        Me.Pad2SubBtn.Name = "Pad2SubBtn"
+        Me.Pad2SubBtn.Size = New System.Drawing.Size(51, 23)
+        Me.Pad2SubBtn.TabIndex = 6
+        Me.Pad2SubBtn.Text = "Sub"
+        Me.Pad2SubBtn.UseVisualStyleBackColor = True
+        '
+        'Pad3SubBtn
+        '
+        Me.Pad3SubBtn.Location = New System.Drawing.Point(276, 346)
+        Me.Pad3SubBtn.Name = "Pad3SubBtn"
+        Me.Pad3SubBtn.Size = New System.Drawing.Size(51, 23)
+        Me.Pad3SubBtn.TabIndex = 6
+        Me.Pad3SubBtn.Text = "Sub"
+        Me.Pad3SubBtn.UseVisualStyleBackColor = True
+        '
+        'Pad4SubBtn
+        '
+        Me.Pad4SubBtn.Location = New System.Drawing.Point(382, 346)
+        Me.Pad4SubBtn.Name = "Pad4SubBtn"
+        Me.Pad4SubBtn.Size = New System.Drawing.Size(51, 23)
+        Me.Pad4SubBtn.TabIndex = 6
+        Me.Pad4SubBtn.Text = "Sub"
+        Me.Pad4SubBtn.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -561,6 +601,10 @@ Partial Class Form1
         Me.Controls.Add(Me.Pad3ScoreSetBtn)
         Me.Controls.Add(Me.Pad2ScoreSetBtn)
         Me.Controls.Add(Me.Pad1ScoreSetBtn)
+        Me.Controls.Add(Me.Pad4SubBtn)
+        Me.Controls.Add(Me.Pad3SubBtn)
+        Me.Controls.Add(Me.Pad2SubBtn)
+        Me.Controls.Add(Me.Pad1SubBtn)
         Me.Controls.Add(Me.Pad1AddSubBtn)
         Me.Controls.Add(Me.Pad4ScoreLbl)
         Me.Controls.Add(Me.Pad3ScoreLbl)
@@ -637,4 +681,8 @@ Partial Class Form1
     Friend WithEvents Pad3NameTxt As TextBox
     Friend WithEvents Pad4NameTxt As TextBox
     Friend WithEvents BuzzActiveChk As CheckBox
+    Friend WithEvents Pad1SubBtn As Button
+    Friend WithEvents Pad2SubBtn As Button
+    Friend WithEvents Pad3SubBtn As Button
+    Friend WithEvents Pad4SubBtn As Button
 End Class
