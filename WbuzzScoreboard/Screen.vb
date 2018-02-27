@@ -23,6 +23,8 @@
                 Pad4Score.BackColor = Color.Red
                 Pad4NameLbl.BackColor = Color.Red
                 CurrentBlink = 4
+            Case 5
+                CurrentBlink = 5
         End Select
     End Sub
     Public Sub Reset()
@@ -49,6 +51,11 @@
                     Pad3Score.ForeColor = Color.Red
                 Case 4
                     Pad4Score.ForeColor = Color.Red
+                Case 5
+                    Pad1Score.ForeColor = Color.Black
+                    Pad2Score.ForeColor = Color.Black
+                    Pad3Score.ForeColor = Color.Black
+                    Pad4Score.ForeColor = Color.Black
             End Select
             BlinkState = 1
         Else

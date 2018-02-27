@@ -78,6 +78,13 @@ Partial Class Form1
         Me.Pad2SubBtn = New System.Windows.Forms.Button()
         Me.Pad3SubBtn = New System.Windows.Forms.Button()
         Me.Pad4SubBtn = New System.Windows.Forms.Button()
+        Me.SoundChk = New System.Windows.Forms.CheckBox()
+        Me.SoundList = New System.Windows.Forms.ListBox()
+        Me.BlinkAllBtn = New System.Windows.Forms.Button()
+        Me.Pad1Chk = New System.Windows.Forms.CheckBox()
+        Me.Pad2Chk = New System.Windows.Forms.CheckBox()
+        Me.Pad3Chk = New System.Windows.Forms.CheckBox()
+        Me.Pad4Chk = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -230,9 +237,10 @@ Partial Class Form1
         '
         'ResetBtn
         '
+        Me.ResetBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.ResetBtn.Location = New System.Drawing.Point(134, 206)
         Me.ResetBtn.Name = "ResetBtn"
-        Me.ResetBtn.Size = New System.Drawing.Size(75, 23)
+        Me.ResetBtn.Size = New System.Drawing.Size(170, 44)
         Me.ResetBtn.TabIndex = 3
         Me.ResetBtn.Text = "Reset"
         Me.ResetBtn.UseVisualStyleBackColor = True
@@ -540,7 +548,7 @@ Partial Class Form1
         Me.BuzzActiveChk.AutoSize = True
         Me.BuzzActiveChk.Checked = True
         Me.BuzzActiveChk.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.BuzzActiveChk.Location = New System.Drawing.Point(216, 211)
+        Me.BuzzActiveChk.Location = New System.Drawing.Point(310, 206)
         Me.BuzzActiveChk.Name = "BuzzActiveChk"
         Me.BuzzActiveChk.Size = New System.Drawing.Size(92, 17)
         Me.BuzzActiveChk.TabIndex = 9
@@ -583,11 +591,95 @@ Partial Class Form1
         Me.Pad4SubBtn.Text = "Sub"
         Me.Pad4SubBtn.UseVisualStyleBackColor = True
         '
+        'SoundChk
+        '
+        Me.SoundChk.AutoSize = True
+        Me.SoundChk.Checked = True
+        Me.SoundChk.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.SoundChk.Location = New System.Drawing.Point(310, 229)
+        Me.SoundChk.Name = "SoundChk"
+        Me.SoundChk.Size = New System.Drawing.Size(57, 17)
+        Me.SoundChk.TabIndex = 10
+        Me.SoundChk.Text = "Sound"
+        Me.SoundChk.UseVisualStyleBackColor = True
+        '
+        'SoundList
+        '
+        Me.SoundList.FormattingEnabled = True
+        Me.SoundList.Location = New System.Drawing.Point(438, 206)
+        Me.SoundList.Name = "SoundList"
+        Me.SoundList.Size = New System.Drawing.Size(151, 134)
+        Me.SoundList.TabIndex = 11
+        '
+        'BlinkAllBtn
+        '
+        Me.BlinkAllBtn.Location = New System.Drawing.Point(439, 346)
+        Me.BlinkAllBtn.Name = "BlinkAllBtn"
+        Me.BlinkAllBtn.Size = New System.Drawing.Size(150, 23)
+        Me.BlinkAllBtn.TabIndex = 12
+        Me.BlinkAllBtn.Text = "Blink All"
+        Me.BlinkAllBtn.UseVisualStyleBackColor = True
+        '
+        'Pad1Chk
+        '
+        Me.Pad1Chk.AutoSize = True
+        Me.Pad1Chk.Checked = True
+        Me.Pad1Chk.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.Pad1Chk.Location = New System.Drawing.Point(15, 257)
+        Me.Pad1Chk.Name = "Pad1Chk"
+        Me.Pad1Chk.Size = New System.Drawing.Size(56, 17)
+        Me.Pad1Chk.TabIndex = 13
+        Me.Pad1Chk.Text = "Active"
+        Me.Pad1Chk.UseVisualStyleBackColor = True
+        '
+        'Pad2Chk
+        '
+        Me.Pad2Chk.AutoSize = True
+        Me.Pad2Chk.Checked = True
+        Me.Pad2Chk.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.Pad2Chk.Location = New System.Drawing.Point(121, 257)
+        Me.Pad2Chk.Name = "Pad2Chk"
+        Me.Pad2Chk.Size = New System.Drawing.Size(56, 17)
+        Me.Pad2Chk.TabIndex = 13
+        Me.Pad2Chk.Text = "Active"
+        Me.Pad2Chk.UseVisualStyleBackColor = True
+        '
+        'Pad3Chk
+        '
+        Me.Pad3Chk.AutoSize = True
+        Me.Pad3Chk.Checked = True
+        Me.Pad3Chk.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.Pad3Chk.Location = New System.Drawing.Point(227, 256)
+        Me.Pad3Chk.Name = "Pad3Chk"
+        Me.Pad3Chk.Size = New System.Drawing.Size(56, 17)
+        Me.Pad3Chk.TabIndex = 13
+        Me.Pad3Chk.Text = "Active"
+        Me.Pad3Chk.UseVisualStyleBackColor = True
+        '
+        'Pad4Chk
+        '
+        Me.Pad4Chk.AutoSize = True
+        Me.Pad4Chk.Checked = True
+        Me.Pad4Chk.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.Pad4Chk.Location = New System.Drawing.Point(333, 256)
+        Me.Pad4Chk.Name = "Pad4Chk"
+        Me.Pad4Chk.Size = New System.Drawing.Size(56, 17)
+        Me.Pad4Chk.TabIndex = 13
+        Me.Pad4Chk.Text = "Active"
+        Me.Pad4Chk.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(609, 472)
+        Me.Controls.Add(Me.Pad4Chk)
+        Me.Controls.Add(Me.Pad3Chk)
+        Me.Controls.Add(Me.Pad2Chk)
+        Me.Controls.Add(Me.Pad1Chk)
+        Me.Controls.Add(Me.BlinkAllBtn)
+        Me.Controls.Add(Me.SoundList)
+        Me.Controls.Add(Me.SoundChk)
         Me.Controls.Add(Me.BuzzActiveChk)
         Me.Controls.Add(Me.Pad4NameTxt)
         Me.Controls.Add(Me.Pad3NameTxt)
@@ -685,4 +777,11 @@ Partial Class Form1
     Friend WithEvents Pad2SubBtn As Button
     Friend WithEvents Pad3SubBtn As Button
     Friend WithEvents Pad4SubBtn As Button
+    Friend WithEvents SoundChk As CheckBox
+    Friend WithEvents SoundList As ListBox
+    Friend WithEvents BlinkAllBtn As Button
+    Friend WithEvents Pad1Chk As CheckBox
+    Friend WithEvents Pad2Chk As CheckBox
+    Friend WithEvents Pad3Chk As CheckBox
+    Friend WithEvents Pad4Chk As CheckBox
 End Class
